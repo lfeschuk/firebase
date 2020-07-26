@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Paper Dashboard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    Creative Tim
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="ti-panel"></i>
+                        <p class="ff">Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="ti-text"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="ti-map"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+				<li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="ti-export"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+		<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Table List</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-panel"></i>
+								<p>Stats</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                    <p class="notification">5</p>
+									<p>Notifications</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+						<li>
+                            <a href="#">
+								<i class="ti-settings"></i>
+								<p>Settings</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+		
+		
+		
+
+			<button type="button" onClick="chargeCostumer()">חיוב לקוח</button>
+			<button type="button" onClick="sort()">זיכוי מסעדה</button>
+			<input list="CostumersDataList" id="Costumers"  placeholder="בחר לקוח">
+			  <datalist id="CostumersDataList">
+			  </datalist>
+			  <label for="start">בחר תאריך:</label>
+					<input type="date" id="date_costumer" name="trip-start"
+						   value="2018-07-22"
+						   min="2018-01-01" max="2018-12-31"
+						   format="YYYY-MM-DD">
+			   <input id="choose_amount" input="number"  placeholder="בחר סכום" value="0">
+						   
+						   
+						   
+			 
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">משלוחים פעילים</h4>
+                                <p class="category"></p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover" id="notDoneTable">
+                                    <thead>
+                                        <th>מס' הזמנה</th>
+										<th>תאריך</th>
+										<th>שעת הזמנה</th>
+                                    	<th>מסעדה</th>
+                                    	<th>עיר</th>
+                                    	<th>לכתובת</th>
+                                    	<th>שם לקוח</th>
+										<th>סטאטוס</th>
+										<th>זמן הגעה למסעדה</th>
+										<th>זמן ציוות</th>
+										<th>זמן יציאה מהמסעדה</th>
+										<th>זמן הגעה ללקוח</th>
+										<th>מזומן\אשראי</th>
+										<th>מחיר</th>
+										<th>שם שליח</th>
+										<th>מס' חבילות</th>
+										<th>זמן הכנה</th>
+										<th>בונוס איחור</th>
+										<th>זמן התחייבות</th>
+										
+                                    </thead>
+                             
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					<p id="deliv_amount" >סה''כ משלוחים:</p>
+					<p id="deliv_amount_sorted" >סה''כ משלוחים:</p>
+					<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+					
+					
+				
+					<p>מיין לפי:</p>
+					<label for="start">תאריך התחלה:</label>
+					<input type="date" id="start_date_sort" name="trip-start"
+						   value="2018-07-22"
+						   min="2018-01-01" max="2018-12-31"
+						   format="YYYY-MM-DD">
+				    <label for="start">תאריך סיום:</label>
+					<input type="date" id="end_date_sort" name="trip-start"
+						   value="2018-07-22"
+						   min="2018-01-01" max="2018-12-31">
+					 <label for="start">מיין לפי מלל:</label>
+					 <input type="text" id="sortInfo" value=""><br>
+						<button type="button" onClick="sort()">מיין</button>
+						<br>
+						
+						
+						<button type="button" onClick="xport.toCSV('DoneTable')">הוצא לCSV</button>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">משלוחים גמורים</h4>
+                                <p class="category"></p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover" id="DoneTable">
+                                    <thead>
+                                         <th>מס' הזמנה</th>
+										<th>תאריך</th>
+										<th>שעת הזמנה</th>
+                                    	<th>מסעדה</th>
+                                    	<th>עיר</th>
+                                    	<th>לכתובת</th>
+                                    	<th>שם לקוח</th>
+										<th>סטאטוס</th>
+										<th>זמן הגעה למסעדה</th>
+										<th>זמן ציוות</th>
+										<th>זמן יציאה מהמסעדה</th>
+										<th>זמן הגעה ללקוח</th>
+										<th>מזומן\אשראי</th>
+										<th>מחיר</th>
+										<th>שם שליח</th>
+										<th>מס' חבילות</th>
+										<th>זמן הכנה</th>
+										<th>בונוס איחור</th>
+										<th>זמן התחייבות</th>
+                                    </thead>
+                                    
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="http://www.creative-tim.com">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                               Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+				<div class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+	<!--  Charts   -->
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="assets/js/paper-dashboard.js"></script>
+
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+	
+	<script>
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippe	 
+
+	 var config = {
+		apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+		authDomain: "jetpack-f6617.firebaseapp.com",
+		databaseURL: "https://jetpack-f6617.firebaseio.com",
+		projectId: "jetpack-f6617",
+
+	  };
+	  let table_size = 19;
+	  let num_deliv = 0;
+	  let num_deliv_sorted = 0;
+	  let CostumerList = [];
+	  let table1;
+	  let table2;
+  firebase.initializeApp(config);
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Simple Column Chart with Index Labels"
+	},
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		//indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#5A5757",
+		indexLabelPlacement: "outside",
+		dataPoints: [
+			{ x: 10, y: 71 },
+			{ x: 20, y: 55 },
+			{ x: 30, y: 50 },
+			{ x: 40, y: 65 },
+			{ x: 50, y: 92, indexLabel: "Highest" },
+			{ x: 60, y: 68 },
+			{ x: 70, y: 38 },
+			{ x: 80, y: 71 },
+			{ x: 90, y: 54 },
+			{ x: 100, y: 60 },
+			{ x: 110, y: 36 },
+			{ x: 120, y: 49 },
+			{ x: 130, y: 21, indexLabel: "Lowest" }
+		]
+	}]
+});
+chart.render();
+
+
+  
+   var ref = firebase.database().ref().child('Deliveries');
+   var refCostumers = firebase.database().ref().child('Restoraunt');
+   refCostumers.once("value", function(snapshot) {
+		snapshot.forEach(function(child) {
+			CostumerList.push(child.val().name);
+			console.log(child.val().name);
+		})
+		var options = "";
+		for (var i = 0; i< CostumerList.length ; i++)
+		{
+			options += '<option value="'+CostumerList[i]+'" />';
+		}
+		
+		document.getElementById('CostumersDataList').innerHTML = options;
+   });
+   ref.once("value", function(snapshot) {
+	 snapshot.forEach(function(child) {
+	if (child.val().is_deleted === false  && child.val().status !== "D"  )
+	{
+		  var table = document.getElementById("notDoneTable");
+		  setRow(table,child)
+		  table1 = table;
+	}
+	else if (child.val().is_deleted === false)
+	{
+		 var table = document.getElementById("DoneTable");
+		 setRow(table,child)
+		 table2 = table;
+		 num_deliv++;
+		 num_deliv_sorted++;
+	}
+		
+  });
+	document.getElementById("deliv_amount").innerHTML =  "כמות משלוחים שבוצעו סה''כ:"  + " " +  num_deliv  ;
+	document.getElementById("deliv_amount_sorted").innerHTML =  "כמות משלוחים ממוינים:"  + " " +  num_deliv_sorted  ;
+   
+   })
+   function setRow(table,child)
+   {
+	     var row = table.insertRow(1);
+		  setCell(0,child.val().indexString,row);
+		  setCell(1,child.val().date,row);
+		  setCell(2,child.val().timeInserted,row);
+		  setCell(3,child.val().business_name,row);
+		  setCell(4,child.val().city,row);
+		  setCell(5,child.val().adressTo,row);
+		  setCell(6,child.val().costumerName,row);
+		  setCell(7,child.val().status,row);
+		  setCell(8,child.val().timeArriveToRestoraunt,row);
+		  setCell(9,child.val().time_assigned,row);
+		  setCell(10,child.val().timeTaken,row);
+		  setCell(11,child.val().timeDeliver,row);
+		  if (child.val().is_cash)
+		  {
+			setCell(12,"מזומן",row);
+		  }
+		  else
+		  {
+			setCell(12,"אשראי",row);
+		  }
+		  setCell(13,child.val().price,row);
+		  setCell(14,child.val().deliveryGuyName,row);
+		  setCell(15,child.val().num_of_packets,row);
+		  setCell(16,child.val().prepare_time,row);
+		  setCell(17,child.val().time_bonus,row);
+		  setCell(18,child.val().time_max_to_costumer,row); 
+   }
+   function setCell(index,data,row)
+   {
+	 var cell = row.insertCell(index);
+	 cell.innerHTML = data;
+   }
+   function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+function sort()
+{
+  console.log("sort");
+	var rows = table2.rows;
+  var start_date = document.getElementById("start_date_sort").value;
+  var end_date = document.getElementById("end_date_sort").value;
+  var free_sort = document.getElementById("end_date_sort").value;
+  let num_deliv_sorted = 0;
+  //zero is the title
+	for (var i =1; i< rows.length ; i++)
+	{
+	//date
+		var date = rows[i].cells[1].innerText;
+		
+		if (date.localeCompare(start_date) < 0 || date.localeCompare(end_date) > 0)
+		{
+			table2.rows[i].style.display = 'none';
+		}
+		else
+		{
+		let value_included = false;
+		let sortValue = document.getElementById("sortInfo").value;
+		 console.log("sortVal:" +  sortValue);
+			for (var j=0;j<rows[i].cells.length;j++)
+			{
+				if (rows[i].cells[j].innerText.includes(sortValue))
+				{
+					value_included = true;
+					break;
+				}
+				
+			}
+			if (value_included === false)
+			{
+			 table2.rows[i].style.display = 'none';
+			}
+			else
+			{
+		      value_included = true;
+			  table2.rows[i].style.display = '';
+			  num_deliv_sorted++;
+			}
+			
+		}
+	}
+	document.getElementById("deliv_amount_sorted").innerHTML =  "כמות משלוחים ממוינים:"  + " " +  num_deliv_sorted  ;
+}
+
+function chargeCostumer()
+{
+	var costumer = document.getElementById("Costumers").value;
+	if (costumer === null || costumer === "" || costumer === undefined)
+	{
+	//use web flow for gui
+		alert("נא לבחור לקוח");
+		return;
+	}
+	var chosen_date = document.getElementById("date_costumer").value;
+	
+	var chosen_amount = document.getElementById("choose_amount").value;
+	alert(chosen_date + "  " + chosen_amount);
+}
+
+  var date = new Date();
+  document.getElementById("start_date_sort").max = formatDate(date);
+  document.getElementById("end_date_sort").max = formatDate(date)
+  document.getElementById("date_costumer").max = formatDate(date)
+ 
+  document.getElementById("end_date_sort").value = formatDate(date);
+
+
+  
+ //alert("fff");
+</script>
+
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<input type="file" id="input-excel" />
+
+<h2>Modal Example</h2>
+ <input type="file" id="input-excel" />
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+<script>
+var config = {
+		apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+		authDomain: "jetpack-f6617.firebaseapp.com",
+		databaseURL: "https://jetpack-f6617.firebaseio.com",
+		projectId: "jetpack-f6617",
+		storageBucket: "jetpack-f6617.appspot.com",
+
+	  };
+
+	  let deliv_month_table = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+  firebase.initializeApp(config);
+  var ref = firebase.database().ref().child('Costumers');
+   $('#input-excel').change(function(e){
+   console.log("fff");
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(e.target.files[0]);
+                reader.onload = function(e) {
+                        var data = new Uint8Array(reader.result);
+                        var wb = XLSX.read(data,{type:'array'});
+						for (var i=1; i< wb.SheetNames.length;i++)
+						{
+								var first_sheet_name = wb.SheetNames[i];
+							var worksheet = wb.Sheets[first_sheet_name];
+							var temp = 	XLSX.utils.sheet_to_json(worksheet);
+							console.log("eee:" + temp.length);
+								console.log("eee:" + temp[0]);
+								//console.log("eee:" + temp[1].הערת לקוח);
+							//	console.log("eee:" + Object.keys(temp[9]));
+							for(var j=0; j<temp.length;j++)
+							{
+							addCostumer(temp,i);
+							}
+						}
+						
+					//	addDelayedDeliv(temp,0);
+		
+					//	addCostumer(temp,1);
+						 
+                     //  var htmlstr = XLSX.write(wb,{sheet:"Sheet1", type:'binary',bookType:'html'});
+					//   console.log("ff2: " + htmlstr);
+                      //  $('#wrapper')[0].innerHTML += htmlstr;
+                }
+        });
+		
+var colValues =[];
+
+function checkCols(workbook,index,length)  //your workbook variable
+  {
+    var first_sheet_name = workbook.SheetNames[0];
+    var worksheet = workbook.Sheets[first_sheet_name];
+    var cells = Object.keys(worksheet);
+	
+	var count = 0;
+    for (var i = 0; i < Object.keys(cells).length; i++) {
+        if( cells[i].match(/\d+/g) == index)
+        {
+	
+            colValues.push(worksheet[cells[i]].v); //Contails all column names
+			console.log("eee: " + worksheet[cells[i]].v);
+			count ++;
+			if (count === (length-1))
+			{
+			console.log("fff: " + worksheet[cells[i]].v);
+			return;
+			}
+			else{
+			console.log("fff2: " +count );
+			}
+			//console.log("eee3: " + cells[i]);
+        }
+		else
+		{
+		console.log("ignoreee: " + count);
+		}
+    }
+ }
+  
+  
+
+   
+
+
+
+ function addCostumer(column,i)
+ {
+ var restoraunt = column[i]["מסעדה"];
+ if (restoraunt === undefined)
+	 {
+	 restoraunt = "";
+	 }
+ var name = column[i]["שם לקוח"];
+ if (name === undefined)
+	 {
+	 name = "";
+	 }
+  var city = column[i]["עיר לקוח"];
+   if (city === undefined)
+	 {
+	 city = "";
+	 }
+  var street =column[i]["רחוב לקוח"];
+  if (street === undefined)
+	 {
+	 street = "";
+	 }
+  var building =column[i]["מספר בניין לקוח"];
+   if (building === undefined)
+	 {
+	 building = "";
+	 }
+   var entrance =column[i]["מספר כניסה לקוח"];
+    if (entrance === undefined)
+	 {
+	 entrance = "";
+	 }
+   var floor =column[i]["מספר קומה לקוח"];
+   if (floor === undefined)
+	 {
+	 floor = "";
+	 }
+     var comment =column[i]["הערת לקוח"];
+	 if (comment === undefined)
+	 {
+	 comment = "";
+	 }
+	 var phone  = column[i]["מספר טלפון לקוח"];
+  
+ var costumer = {
+	restoraunt: restoraunt,
+	another_phone: "",
+	apartment: "",
+	building: building.toString(),
+	city:  city,
+	comment: comment,
+	entrance: entrance.toString(),
+	floor: floor.toString(),
+	intercum_num: "",
+	name: name,
+	phone: phone,
+	source_cord_lat: parseFloat(0),
+	source_cord_long: parseFloat(0),
+	street: street,
+	
+ }
+ if (phone === null || phone === undefined)
+ {
+ console.log("fff " + phone);
+ return;
+ }
+ ref.child(phone).push(costumer);
+ 
+ }
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

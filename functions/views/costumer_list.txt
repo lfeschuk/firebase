@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en" dir="rtl" class="rtl">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Paper Dashboard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+
+</head>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  padding-left:200px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+
+  overflow: auto;
+   z-index: 1; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<body>
+
+<div class="wrapper">
+	<div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                   JetPack
+                </a>
+            </div>
+
+            <ul class="nav">
+				<li>
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>משלוחים</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="costumers.html">
+                        <i class="ti-text"></i>
+                        <p>לקוחות</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html" >
+                        <i class="ti-pencil-alt2"></i>
+                        <p>משתמשים</p>
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="other.html"  >
+                        <i class="ti-bell"></i>
+                        <p>שונות</p>
+                    </a>
+                </li>
+				<li class="active">
+                    <a href="costumer_list.html"  >
+                        <i class="ti-bell"></i>
+                          <p>רשימת לקוחות</p>
+                    </a>
+                </li>
+			
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+		<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">שונות</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-panel"></i>
+								<p>Stats</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                    <p class="notification">5</p>
+									<p>Notifications</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+						<li>
+                            <a href="#">
+								<i class="ti-settings"></i>
+								<p>Settings</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+		
+		
+			
+
+
+			
+
+  
+
+
+
+  
+  
+   
+			 
+			
+
+
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="http://www.creative-tim.com">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                               Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+				<div class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+  
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+	<!--  Charts   -->
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="assets/js/paper-dashboard.js"></script>
+
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+	
+	
+	<script type="text/javascript" src="js/functions.js"></script>
+	
+	
+	<script>
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippe	 
+
+	 var config = {
+		apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+		authDomain: "jetpack-f6617.firebaseapp.com",
+		databaseURL: "https://jetpack-f6617.firebaseio.com",
+		projectId: "jetpack-f6617",
+		storageBucket: "jetpack-f6617.appspot.com",
+
+	  };
+	  firebase.initializeApp(config);
+	 var ref = firebase.database().ref().child('areas');
+	 var areaList = [];
+  ref.once("value", function(snapshot) {
+	snapshot.forEach(function(child) {
+		areaList.push(child.val().area);
+		
+	})
+	var options = "";
+	for (var i = 0; i< areaList.length ; i++)
+	{
+		options += '<option value="'+areaList[i]+'" />';
+	}
+	
+	document.getElementById('areaDataList').innerHTML = options;
+});
+ var delivGuysNames = [];
+  var delivGuys = [];
+ ref = firebase.database().ref().child('User_Delivery');
+ref.once("value", function(snapshot) {
+	snapshot.forEach(function(child) {
+		delivGuysNames.push(child.val().username);
+		delivGuys.push(child.val());
+		
+	})
+	var options = "";
+	for (var i = 0; i< delivGuysNames.length ; i++)
+	{
+		options += '<option value="'+delivGuysNames[i]+ " " + (i+1) + '"  />';
+		//console.log(options);
+	}
+	
+	document.getElementById('deiveryDataList').innerHTML = options;
+		document.getElementById('delivAreaList').innerHTML = options;
+	document.getElementById('adminAreaList').innerHTML = options;
+});
+
+var admins_name = [];
+var admins = [];
+ ref = firebase.database().ref().child('User_Admin');
+ref.once("value", function(snapshot) {
+	snapshot.forEach(function(child) {
+		admins_name.push(child.val().name + " " + child.val().phone);
+		admins.push(child.val());
+		
+	})
+	var options = "";
+	for (var i = 0; i< admins_name.length ; i++)
+	{
+		options += '<option value="'+admins_name[i]+'"  />';
+		//console.log(options);
+	}
+	
+	document.getElementById('adminDataList').innerHTML = options;
+});
+var refFeedback =  firebase.database().ref().child('Feedback_Quest');
+var feedbacks = [];
+refFeedback.once("value", function(snapshot) {
+	snapshot.forEach(function(child) {
+		feedbacks.push(child.key + " " + child.val());
+		
+	})
+	var options = "";
+	for (var i = 0; i< feedbacks.length ; i++)
+	{
+		options += '<option value="'+feedbacks[i]+'"  />';
+		//console.log(options);
+	}
+	
+	document.getElementById('feedbackDataList').innerHTML = options;
+});
+function addFeedbackQuestions()
+{
+  var quest1 = document.getElementById('firstQuestion').innerHTML;
+   var quest2 = document.getElementById('secondQuestion').innerHTML;
+    var quest3 = document.getElementById('thirdQuestion').innerHTML;
+	 var quest4 = document.getElementById('fourQuestion').innerHTML;
+	 if (quest1 !== "הזן שאלה ראשונה")
+	 {
+	 refFeedback.child("1").set(quest1);
+	 }
+	 if (quest2 !== "הזן שאלה שנייה")
+	 {
+	 refFeedback.child("2").set(quest2);
+	 }
+	 if (quest3 !== "הזן שאלה שלישית")
+	 {
+	 refFeedback.child("3").set(quest3);
+	 }
+	 if (quest4 !== "הזן שאלה רביעית")
+	 {
+	 refFeedback.child("4").set(quest4);
+	 }
+  console.log("eee:" + quest1);
+}
+
+function addArea()
+{
+console.log("fff");
+	var area = document.getElementById('addArea').value;
+		ref.once("value", function(snapshot) {
+		var found = false;
+	 snapshot.forEach(function(child)
+	 {
+		if (child.val().area === area)
+		{	
+		found = true;
+		}
+	
+	});
+	if (found)
+	{
+	}
+	else
+	{
+		let val = { area: area }
+		ref.push(val);
+	}
+		
+	});
+
+}
+
+
+function addAdmin()
+{
+ 				
+var name = document.getElementById("adminName").value;
+var adminPhone = document.getElementById("adminPhone").value;
+var adminEmail = document.getElementById("adminEmail").value;
+var adminPassword = document.getElementById("adminPassword").value;
+var adminArea = document.getElementById("adminArea").value;
+
+
+if (name === null || name === "" || name === undefined)
+	{
+		alert("חסר קלט");
+		return;
+	}
+	if (adminPhone === null || adminPhone === "" || adminPhone === undefined)
+	{
+		alert("חסר קלט");
+		return;
+	}
+	if (adminEmail === null || adminEmail === "" || adminEmail === undefined)
+	{
+		alert("חסר קלט");
+		return;
+	}
+	if (adminPassword === null || adminPassword === "" || adminPassword === undefined)
+	{
+		alert("חסר קלט");
+		return;
+	}
+	if (adminArea === null || adminArea === "" || adminArea === undefined)
+	{
+		alert("חסר קלט");
+		return;
+	}
+	let admin = {
+	name: name,
+	adminPhone: adminPhone ,
+	adminEmail: adminEmail,
+	adminPassword: adminPassword,
+	adminArea: adminArea};
+	
+	
+					
+		var refAdmin = firebase.database().ref().child('UsersAdmin');
+		refAdmin.child(adminEmail).set(admin);
+
+	
+}
+
+
+function addDeliveryGuyUser()
+{
+	var name = document.getElementById("delivGuyName").value;
+var delivGuyPhone = document.getElementById("delivGuyPhone").value;
+var delivGuyPass = document.getElementById("delivGuyPass").value;
+var delivGuySalary = document.getElementById("delivGuySalary").value;
+var delivList = document.getElementById("delivList").value;
+if (name === undefined  || name === "" || delivGuyPhone === undefined  || delivGuyPhone === "" ||
+ delivGuyPass === undefined  || delivGuyPass === "" || delivList === undefined  || delivList === ""
+ || delivGuySalary === undefined  || delivGuySalary === "")
+	{
+		alert("חסר קלט");
+		return;
+	}
+	
+	
+	
+	
+			console.log("here: ");		
+				var temp = firebase.database().ref().child('deliveryGuyIndex');	
+				
+				 temp.once("value", function(snapshot) 
+				 {
+				 	
+		
+		
+			var index = snapshot.val();
+			console.log("eee: " + index);
+			temp.set(index+1);
+			let user_delivery = {
+					username: name,
+					indexString: (index+1).toString(),
+					phone: delivGuyPhone	 ,
+					password: delivGuyPass,
+					salary: parseFloat(delivGuySalary),
+					area: delivList};
+					
+					var refUser = firebase.database().ref().child('User_Delivery');
+					refUser.child(delivGuyPhone).set(user_delivery);
+			
+	
+		
+   });
+   }
+				
+	
+function removeArea()
+{
+console.log("fff");
+	var area = document.getElementById('areaList').value;
+		ref.once("value", function(snapshot) {
+		
+	 snapshot.forEach(function(child)
+	 {
+		if (child.val().area === area)
+		{	
+		ref.child(child.key).remove();
+		return;
+		}
+	
+	});
+	
+		
+	});
+
+}
+
+function removeAdmin()
+{
+console.log("fff");
+	var admin = document.getElementById('adminList').value;
+	for (var i=0; i< admins.length; i++)
+	{
+	var temp = (admins[i].name + " " + admins[i].phone);
+		if ( temp === admin)
+		{
+			ref = firebase.database().ref().child('User_Admin').child(admins[i].adminEmail).remove();
+			return;
+		}
+	}
+	
+}
+  var file_101; 
+  var file_contract;
+  var file_secret;
+var filebutt_101 = document.getElementById('file_101');
+	
+	  filebutt_101.addEventListener('change',function(e){
+	    file_101 = e.target.files[0];
+	
+	  })
+	  var filebutt_contract = document.getElementById('file_contract');
+	
+	  filebutt_contract.addEventListener('change',function(e){
+	    file_contract = e.target.files[0];
+	
+	  })
+	  
+	   var filebutt_secret = document.getElementById('file_secret');
+	
+	  filebutt_secret.addEventListener('change',function(e){
+	    file_secret = e.target.files[0];
+	
+	  })
+
+function removeDeliveryGuy()
+{
+
+	var arr = document.getElementById('deliveryguylist').value.split(" ");
+	var index_selected = arr[arr.length-1]-1;
+	var delivery_guy = delivGuys[index_selected];
+	ref = firebase.database().ref().child('Delivery_Guys').child(delivery_guy.indexString).remove();
+	ref = firebase.database().ref().child('User_Delivery').child(delivery_guy.phone).remove();
+				
+
+}
+
+function addFiles()
+{
+var arr = document.getElementById('deliveryguylist2').value.split(" ");
+	var index_selected = arr[arr.length-1]-1;
+	var delivery_guy = delivGuys[index_selected];
+	
+	ref = firebase.database().ref().child('User_Delivery');
+	if (file_101 != null)
+{
+ var storageRef = firebase.storage().ref('files/101/' + file_101.name);
+	  
+	  storageRef.put(file_101);
+	  ref.child(delivery_guy.phone).child("file_101").set(file_101.name);
+}
+if (file_contract != null)
+{
+ var storageRef = firebase.storage().ref('files/contracts/' + file_contract.name);
+	  
+	  storageRef.put(file_contract);
+	   ref.child(delivery_guy.phone).child("file_contract").set(file_contract.name);
+}
+if (file_secret != null)
+{
+ var storageRef = firebase.storage().ref('files/secrets/' + file_secret.name);
+	  
+	  storageRef.put(file_secret);
+	   ref.child(delivery_guy.phone).child("file_secret").set(file_secret.name);
+}
+
+
+}
+	
+
+
+  
+ //alert("fff");
+</script>
+
+
+</html>

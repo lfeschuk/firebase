@@ -1,0 +1,522 @@
+doctype html
+head
+  meta(charset='utf-8')
+  link(rel='apple-touch-icon', sizes='76x76', href='assets/img/apple-icon.png')
+  link(rel='icon', type='image/png', sizes='96x96', href='assets/img/favicon.png')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  title Paper Dashboard by Creative Tim
+  meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport')
+  meta(name='viewport', content='width=device-width')
+  // Bootstrap core CSS
+  link(href='assets/css/bootstrap.min.css', rel='stylesheet')
+  // Animation library for notifications
+  link(href='assets/css/animate.min.css', rel='stylesheet')
+  // Paper Dashboard core CSS
+  link(href='assets/css/paper-dashboard.css', rel='stylesheet')
+  // CSS for Demo Purpose, don't include it in your project
+  link(href='assets/css/demo.css', rel='stylesheet')
+  // Fonts and icons
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css', rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Muli:400,300', rel='stylesheet', type='text/css')
+  link(href='assets/css/themify-icons.css', rel='stylesheet')
+style.
+  body {font-family: Arial, Helvetica, sans-serif;}
+  /* The Modal (background) */
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  padding-left:200px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  /* Modal Content */
+  .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  }
+  /* The Close Button */
+  .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  }
+.wrapper
+  .sidebar(data-background-color='white', data-active-color='danger')
+    //
+      Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+      Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+    .sidebar-wrapper
+      .logo
+        a.simple-text(href='http://www.creative-tim.com')
+          | JetPack
+      ul.nav
+        li
+          a(href='https://jetpack-delivery.tk/table')
+            i.ti-view-list-alt
+            p &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+        li.active
+          a(href='https://jetpack-delivery.tk/costumers')
+            i.ti-text
+            p &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+        li
+          a(href='https://jetpack-delivery.tk/users')
+            i.ti-pencil-alt2
+            p &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD;
+        li
+          a(href='https://jetpack-delivery.tk/other')
+            i.ti-bell
+            p &#x5E9;&#x5D5;&#x5E0;&#x5D5;&#x5EA;
+        li
+          a(href='https://jetpack-delivery.tk/costumer_list')
+            i.ti-bell
+            p &#x5E8;&#x5E9;&#x5D9;&#x5DE;&#x5EA; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+  .main-panel
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button')
+            span.sr-only Toggle navigation
+            span.icon-bar.bar1
+            span.icon-bar.bar2
+            span.icon-bar.bar3
+          a.navbar-brand(href='#') &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.ti-panel
+                p Stats
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.ti-bell
+                p.notification 5
+                p Notifications
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Notification 1
+                li
+                  a(href='#') Notification 2
+                li
+                  a(href='#') Notification 3
+                li
+                  a(href='#') Notification 4
+                li
+                  a(href='#') Another notification
+            li
+              a(href='#')
+                i.ti-settings
+                p Settings
+    div
+      b &#x5E9;&#x5D9;&#x5DD; &#x5DC;&#x5D1; &#x5DB;&#x5D9; &#x5D9;&#x5E9; &#x5DC;&#x5DE;&#x5DC;&#x5D0; &#x5D0;&#x5EA; &#x5DB;&#x5DC; &#x5D4;&#x5E4;&#x5E8;&#x5D8;&#x5D9;&#x5DD; &#x5D0;&#x5D7;&#x5E8;&#x5EA; &#x5D9;&#x5D3;&#x5E8;&#x5E1;, &#x5D0;&#x5D9;&#x5DF; &#x5DC;&#x5D4;&#x5E9;&#x5EA;&#x5DE;&#x5E9; &#x5D1;&#x5DE;&#x5E1;&#x5DA; &#x5D6;&#x5D4; &#x5DB;&#x5D3;&#x5D9; &#x5DC;&#x5E2;&#x5E8;&#x5D5;&#x5DA; &#x5DC;&#x5E7;&#x5D5;&#x5D7;
+      br
+      input#addCostumerName(type='text', placeholder='שם לקוח')
+      input#addCostumerArea(list='areaDataList', placeholder='איזור')
+      datalist#areaDataList
+      input#addCostumerContactName(type='text', placeholder='איש קשר')
+      input#addCostumerPhone(type='text', placeholder='טלפון')
+      input#addCostumerPhone2(type='text', placeholder='2טלפון')
+      input#addCostumerCity(type='text', placeholder='עיר')
+      input#addCostumerStreet(type='text', placeholder='רחוב')
+      input#addCostumerBuilding(type='text', placeholder='בניין')
+      br
+      input#addCostumerEmail(type='text', placeholder='מייל')
+      input#addCostumerLongtitude(type='text', placeholder='Longtitude')
+      input#addCostumerLatitude(type='text', placeholder='Latitude')
+      input#addCostumerUserName(type='text', placeholder='שם משתמש')
+      input#addCostumerPassword(type='text', placeholder='סיסמא')
+      input#addCostumerPasswordUsers(type='text', placeholder='סיסמא רשימת לקוחות')
+      input#costumerAreaNum(type='text', placeholder='מס אזור (0 מודיעין 1 ירושלים)')
+      input#addDefaultPrice(type='text', placeholder='מחיר ברירת מחדל')
+      p &#x5D1;&#x5D7;&#x5E8; &#x5E4;&#x5D9;&#x5E6;&apos;&#x5E8;&#x5D9;&#x5DD;
+      form(action='/action_page.php')
+        input(type='checkbox', name='feature', value='false')
+        |  &#x5E1;&#x5DE;&#x5E1; &#x5DC;&#x5E6;&#x5E4;&#x5D9;&#x5D9;&#x5D4; &#x5D1;&#x5E9;&#x5DC;&#x5D9;&#x5D7;
+        br
+        input(type='checkbox', name='feature', value='false')
+        |  &#x5E1;&#x5DE;&#x5E1; &#x5D7;&#x5D5;&#x5D5;&#x5EA; &#x5D3;&#x5E2;&#x5EA;
+        br
+        input(type='checkbox', name='feature', value='false')
+        |  &#x5E1;&#x5D8;&#x5D8;&#x5D9;&#x5E1;&#x5D8;&#x5D9;&#x5E7;&#x5D4;
+        br
+        input(type='checkbox', name='feature', value='false')
+        |  &#x5DE;&#x5D9;&#x5E4;&#x5D5;&#x5D9; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+        br
+        input(type='checkbox' name='feature' value='false')
+        |  &#x5E7;&#x5D5;&#x5D5;&#x5D9;&#x5DD; &#x5D1;&#x5D9;&#x5DF; &#x5E2;&#x5D9;&#x5E8;&#x5D5;&#x5E0;&#x5D9;&#x5D9;&#x5DD; &#x5D1;&#x5DC;&#x5D1;&#x5D3;
+        br
+      input#addCostumerMinMorning(type='number', placeholder='מינימום בוקר')
+      input#addCostumerMinevening(type='number', placeholder='מינימום ערב')
+      input#minDay(type='number', placeholder='מינימום יומי')
+      input#minMonth(type='number', placeholder='מינימום חודשי')
+      input#addCostumerCheckId(type='text', placeholder='חשבונית על שם')
+      input#addCostumerNUM(type='text', placeholder='מספר עוסק')
+      input#addCostumerPAYMENT(type='text', placeholder='אופן תשלום')
+      input#addCostumerANOTHERCHARGE(type='number', placeholder='חיוב חודשי נוסף')
+      form(action='/action_page.php')
+        input(type='checkbox', name='fridayOption', value='false')
+        | &#x5E9;&#x5D9;&#x5E9;&#x5D9;
+        br
+        input(type='checkbox', name='fridayOption', value='false')
+        |  &#x5E9;&#x5D1;&#x5EA;
+        br
+        |  &#x5D1;&#x5D7;&#x5E8; &#x5EA;&#x5DE;&#x5D5;&#x5E0;&#x5EA; &#x5E4;&#x5E8;&#x5D5;&#x5E4;&#x5D9;&#x5DC; 
+        input#filebutt(type='file', value='upload')
+      select#is_delivery
+        option(value='true') &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+        option(value='false') &#x5D4;&#x5E6;&#x5DE;&#x5D3;&#x5D4;
+      br
+      button(type='button', onclick='addCostumer()') &#x5D4;&#x5D5;&#x5E1;&#x5E4;&#x5EA; &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+    br
+    div
+      button(type='button', onclick='addAreas()') &#x5D4;&#x5D5;&#x5E1;&#x5E4;&#x5EA; &#x5EA;&#x5DE;&#x5D7;&#x5D5;&#x5E8;
+      input#costumerList(list='costumerDataList', placeholder='בחר לקוח')
+      datalist#costumerDataList
+      input#areaList(list='areaDataList', placeholder='בחר איזור')
+      datalist#areaDataList
+      input#addAreaPrice(type='text', placeholder='מחיר')
+    // The Modal
+    #myModal.modal
+      // Modal content
+      .modal-content
+        span.close &times;
+        p
+          | &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;: 
+          b#restName This text is bold
+        p
+          | &#x5E9;&#x5D9;&#x5E0;&#x5D5;&#x5D9; &#x5D1;: 
+          b#changeOn This text is bold
+        p
+          | &#x5E2;&#x5E8;&#x5DA; &#x5E7;&#x5D5;&#x5D3;&#x5DD;: 
+          b#prevVal This text is bold
+        |    &#x5D1;&#x5D7;&#x5E8; &#x5E2;&#x5E8;&#x5DA;:
+        input#newVal(type='text')
+        br
+        input#submit_modal(type='submit', value='הזן')
+    #chartContainer(style='height: 370px; width: 100%;')
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD; &#x5E0;&#x5D1;&#x5D7;&#x5E8;&#x5D9;&#x5DD;
+                p.category
+              .content.table-responsive.table-full-width
+                table#chosenTable.table.table-hover
+                  thead
+                    th &#x5DE;&#x5E1;&apos; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA;
+                    th &#x5E9;&#x5E2;&#x5EA; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5E2;&#x5D9;&#x5E8;
+                    th &#x5DC;&#x5DB;&#x5EA;&#x5D5;&#x5D1;&#x5EA;
+                    th &#x5E9;&#x5DD; &#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5E1;&#x5D8;&#x5D0;&#x5D8;&#x5D5;&#x5E1;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5E6;&#x5D9;&#x5D5;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D9;&#x5E6;&#x5D9;&#x5D0;&#x5D4; &#x5DE;&#x5D4;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5DE;&#x5D6;&#x5D5;&#x5DE;&#x5DF;\&#x5D0;&#x5E9;&#x5E8;&#x5D0;&#x5D9;
+                    th &#x5DE;&#x5D7;&#x5D9;&#x5E8;
+                    th &#x5E9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;&#x5D7;
+                    th &#x5DE;&#x5E1;&apos; &#x5D7;&#x5D1;&#x5D9;&#x5DC;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5DB;&#x5E0;&#x5D4;
+                    th &#x5D1;&#x5D5;&#x5E0;&#x5D5;&#x5E1; &#x5D0;&#x5D9;&#x5D7;&#x5D5;&#x5E8;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5EA;&#x5D7;&#x5D9;&#x5D9;&#x5D1;&#x5D5;&#x5EA;
+          p#deliv_amount &#x5E1;&#x5D4;&apos;&apos;&#x5DB; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;:
+          p#deliv_amount_sorted &#x5E1;&#x5D4;&apos;&apos;&#x5DB; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;:
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD; &#x5E0;&#x5D1;&#x5D7;&#x5E8;&#x5D9;&#x5DD;
+                p.category
+              .content.table-responsive.table-full-width(contenteditable='true', style='z-index: 2000;')
+                table#2.table.table-hover
+                  thead
+                    th &#x5DB;&#x5EA;&#x5D5;&#x5D1;&#x5EA;
+                    th &#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D0; &#x5E0;&#x5D9;&#x5D4;&#x5D5;&#x5DC; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+                    th &#x5D8;&#x5DC;&#x5E4;&#x5D5;&#x5DF;
+                    th &#x5E9;&#x5DD; &#x5E2;&#x5E1;&#x5E7;
+                    th latitude
+                    th longtitude
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5DB;&#x5E0;&#x5D4;
+                    th &#x5D0;&#x5D9;&#x5E9;&#x5D5;&#x5E8;
+    footer.footer
+      .container-fluid
+        nav.pull-left
+          ul
+            li
+              a(href='http://www.creative-tim.com')
+                | Creative Tim
+            li
+              a(href='http://blog.creative-tim.com')
+                | Blog
+            li
+              a(href='http://www.creative-tim.com/license')
+                | Licenses
+        .copyright.pull-right
+          | &copy; 
+          script.
+            document.write(new Date().getFullYear())
+          | , made with 
+          i.fa.fa-heart.heart
+          |  by 
+          a(href='http://www.creative-tim.com') Creative Tim
+// Core JS Files
+script(src='assets/js/jquery.min.js', type='text/javascript')
+script(src='assets/js/bootstrap.min.js', type='text/javascript')
+// Checkbox, Radio & Switch Plugins
+script(src='assets/js/bootstrap-checkbox-radio.js')
+// Charts
+script(src='https://canvasjs.com/assets/script/canvasjs.min.js')
+// Charts Plugin
+script(src='assets/js/chartist.min.js')
+// Notifications Plugin
+script(src='assets/js/bootstrap-notify.js')
+// Google Maps Plugin
+script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js')
+// Paper Dashboard Core javascript and methods for Demo purpose
+script(src='assets/js/paper-dashboard.js')
+// Paper Dashboard DEMO methods, don't include it in your project!
+script(src='assets/js/demo.js')
+script(src='https://www.gstatic.com/firebasejs/5.8.1/firebase.js')
+script(type='text/javascript', src='js/functions.js')
+script.
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippe
+  var config = {
+  apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+  authDomain: "jetpack-f6617.firebaseapp.com",
+  databaseURL: "https://jetpack-f6617.firebaseio.com",
+  projectId: "jetpack-f6617",
+  storageBucket: "jetpack-f6617.appspot.com",
+  };
+  let deliv_month_table = [0,0,0,0,0,0,0,0,0,0,0,0];
+  firebase.initializeApp(config);
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) 
+  {
+  console.log("aaaa " + user); 
+  } 
+  else 
+  {
+  window.location.replace("https://jetpack-delivery.tk/login"); 
+  console.log("bbbb " + user);
+  }
+  });
+  var ref = firebase.database().ref().child('Deliveries');
+ 
+  var filebutt = document.getElementById('filebutt');
+  var file;
+  filebutt.addEventListener('change',function(e){
+  file = e.target.files[0];
+  })
+  let CostumerList = [];
+  var refCostumers = firebase.database().ref().child('Restoraunt');
+  refCostumers.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  CostumerList.push(child.val().name + " - " + child.val().adress);
+  })
+  var options = "";
+  for (var i = 0; i< CostumerList.length ; i++)
+  {
+  options += '<option value="'+CostumerList[i]+'" />';
+  }
+  document.getElementById('costumerDataList').innerHTML = options;
+  });
+  var ref_area = firebase.database().ref().child('areas');
+  var areaList = [];
+  ref_area.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  areaList.push(child.val().area);
+  console.log("fff " + child.val().area);
+  })
+  var options = "";
+  for (var i = 0; i< areaList.length ; i++)
+  {
+  options += '<option value="'+areaList[i]+'" />';
+  }
+  console.log("here fine");
+  document.getElementById('areaDataList').innerHTML = options;
+  });
+  function addAreas ()
+  {
+  var costumer = document.getElementById("costumerList").value;
+  var rest_name = costumer.split(" - ")[0];
+  var rest_adress = costumer.split(" - ")[1];
+  var area = document.getElementById('areaList').value;
+  var price = document.getElementById('addAreaPrice').value;
+  if (costumer === null || costumer === "" || costumer === undefined)
+  {
+  alert("נא לבחור לקוח");
+  return;
+  }
+  if (area === null || area === "" || area === undefined)
+  {
+  alert("נא לבחור איזור");
+  return;
+  }
+  if (price === null || price === "" || price === undefined || price === 0)
+  {
+  alert("נא לבחור מחיר");
+  return;
+  }
+  var refCostumers = firebase.database().ref().child('Restoraunt');
+  //- refCostumers.once("value", function(snapshot) {
+  //- snapshot.forEach(function(child) {
+  //- if ((child.val().name === rest_name) && (child.val().adress === rest_adress))
+  //- {
+  //- refCostumers.child(child.key).child("areas_prices").child(area).child("price").set(price);
+  //- }
+  //- })
+  //- });
+  }
+  function addCostumer ()
+  {
+  console.log("fffrrr");
+  var addCostumerName = document.getElementById("addCostumerName").value;
+  var addCostumerArea = document.getElementById("addCostumerArea").value;
+  var addCostumerContactName = document.getElementById("addCostumerContactName").value;
+  var addCostumerPhone = document.getElementById("addCostumerPhone").value;
+  var addCostumerPhone2 = document.getElementById("addCostumerPhone2").value;
+  var addCostumerCity = document.getElementById("addCostumerCity").value;
+  var addCostumerStreet = document.getElementById("addCostumerStreet").value;
+  var addCostumerBuilding = document.getElementById("addCostumerBuilding").value;
+  var addCostumerEmail = document.getElementById("addCostumerEmail").value;
+  var addCostumerLongtitude = document.getElementById("addCostumerLongtitude").value;
+  var addCostumerLatitude = document.getElementById("addCostumerLatitude").value;
+  var addCostumerUserName = document.getElementById("addCostumerUserName").value;
+  var addCostumerPassword = document.getElementById("addCostumerPassword").value;
+  var costumerAreaNum = document.getElementById("costumerAreaNum").value;
+  if (addCostumerPassword === undefined || addCostumerPassword.length < 6)
+  {
+  alert("נא לבחור סיסמא בגודל יותר מ 6");
+  return;
+  }
+  if (costumerAreaNum == null || costumerAreaNum =="" || isNaN(costumerAreaNum) || costumerAreaNum < 0 )
+  {
+     alert("נא לבחור מספר איזור (0 או 1 כרגע)");
+     return;
+  }
+  if (addCostumerName == null|| addCostumerPhone == null || addCostumerCity == null ||  addCostumerStreet  == null || addCostumerLongtitude  == null || addCostumerLatitude  == null )
+  {
+     alert("חסר קלט");
+     return;
+  }
+   
+  if (addCostumerName == ""|| addCostumerPhone == "" || addCostumerCity == "" ||  addCostumerStreet  == "" || addCostumerLongtitude  == "" || addCostumerLatitude  == "" )
+  {
+    alert("חסר קלט");
+     return;
+  }
+  var addCostumerPasswordUsers = document.getElementById("addCostumerPasswordUsers").value;
+  var addDefaultPrice = document.getElementById("addDefaultPrice").value;
+  var feature1 = document.getElementsByName("feature")[0].checked;
+  var feature2 = document.getElementsByName("feature")[1].checked;
+  var feature3 = document.getElementsByName("feature")[2].checked;
+  var feature4 = document.getElementsByName("feature")[3].checked;
+  var out_of_town_only = document.getElementsByName("feature")[4].checked;
+  var addCostumerMinMorning = document.getElementById("addCostumerMinMorning").value;
+  var addCostumerMinevening = document.getElementById("addCostumerMinevening").value;
+  var minDay = document.getElementById("minDay").value;
+  var minMonth = document.getElementById("minMonth").value;
+  var addCostumerCheckId = document.getElementById("addCostumerCheckId").value;
+  var addCostumerNUM = document.getElementById("addCostumerNUM").value;
+  var addCostumerPAYMENT = document.getElementById("addCostumerPAYMENT").value;
+  var addCostumerANOTHERCHARGE = document.getElementById("addCostumerANOTHERCHARGE").value;
+  var fridayOption = document.getElementsByName("fridayOption")[0].value;
+  var saturdayOption = document.getElementsByName("fridayOption")[1].value;
+  var is_delivery  = document.getElementById("is_delivery").value;
+  console.log("fff: " + is_delivery + " feat1: " + feature1 + " feat2: " +feature2);
+  if (file != null)
+  {
+  var storageRef = firebase.storage().ref('photos/' + file.name);
+  storageRef.put(file);
+  }
+  let str = addCostumerCity + " " + addCostumerStreet + " " +  addCostumerBuilding;
+  let restoraunt = { adress: str ,
+  city: addCostumerCity,
+  street: addCostumerStreet,
+  building: addCostumerBuilding,
+  costumer_pswd: addCostumerPasswordUsers,
+  password: addCostumerPassword,
+  area: addCostumerArea,
+  contact_name: addCostumerContactName,
+  email: addCostumerEmail,
+  lat: parseFloat(addCostumerLatitude),
+  longt: parseFloat(addCostumerLongtitude),
+  name: addCostumerName,
+  notification: false,
+  phone: addCostumerPhone,
+  phone2: addCostumerPhone2,
+  user_name: addCostumerUserName,
+  feature1: feature1,
+  feature2: feature2,
+  feature3: feature3,
+  feature4: feature4,
+  min_morning: addCostumerMinMorning,
+  min_evening: addCostumerMinevening,
+  min_day: minDay,
+  min_month: minMonth,
+  costumer_check_id: addCostumerCheckId,
+  costumer_num: addCostumerNUM,
+  costumer_payment: addCostumerPAYMENT,
+  costumer_another_charge: addCostumerANOTHERCHARGE,
+  fridayOption: fridayOption,
+  saturdayOption:saturdayOption,
+  is_delivery: is_delivery,
+  index: "-1",
+  key: "",
+  areaNum: costumerAreaNum,
+  time_to_costumer: parseFloat(60),
+  time_to_prepare: parseFloat(15),
+  turn_off_notification: true,
+  was_approved: true,
+  out_of_town_only: out_of_town_only,
+  default_price: addDefaultPrice,
+  }
+  var refRest = firebase.database().ref().child('Restoraunt');
+  refRest.push(restoraunt);
+  alert("בוצע: ");
+  firebase.auth().createUserWithEmailAndPassword(addCostumerPhone.toString() + "@gmail.com", addCostumerPassword)
+  .then(()=>{
+     alert("הוסף בהצלחה " + addCostumerPhone.toString() + "@gmail.com");
+  })
+  .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  alert("error: " + errorMessage);
+  // ...
+  });
+  }
+  var date = new Date();
+  document.getElementById("start_date_sort").max = formatDate(date);
+  document.getElementById("end_date_sort").max = formatDate(date)
+  document.getElementById("date_costumer").max = formatDate(date)
+  document.getElementById("end_date_sort").value = formatDate(date);
+  //alert("fff");

@@ -1,0 +1,803 @@
+doctype html
+head
+  meta(charset='utf-8')
+  link(rel='apple-touch-icon' sizes='76x76' href='assets/img/apple-icon.png')
+  link(rel='icon' type='image/png' sizes='96x96' href='assets/img/favicon.png')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+  title Paper Dashboard by Creative Tim
+  meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport')
+  meta(name='viewport' content='width=device-width')
+  // Bootstrap core CSS
+  link(href='assets/css/bootstrap.min.css' rel='stylesheet')
+  // Animation library for notifications
+  link(href='assets/css/animate.min.css' rel='stylesheet')
+  // Paper Dashboard core CSS
+  link(href='assets/css/paper-dashboard.css' rel='stylesheet')
+  // CSS for Demo Purpose, don't include it in your project
+  link(href='assets/css/demo.css' rel='stylesheet')
+  // Fonts and icons
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css')
+  link(href='assets/css/themify-icons.css' rel='stylesheet')
+.wrapper
+  .sidebar(data-background-color='white' data-active-color='danger')
+    //
+      Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+      Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+    .sidebar-wrapper
+      .logo
+        a.simple-text(href='http://www.creative-tim.com')
+          | JetPack
+      ul.nav
+        li.active
+          a(href='https://jetpack-delivery.tk/table')
+            i.ti-view-list-alt
+            p &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+        li
+          a(href='https://jetpack-delivery.tk/costumers')
+            i.ti-text
+            p &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+        li
+          a(href='https://jetpack-delivery.tk/users')
+            i.ti-pencil-alt2
+            p &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD;
+        li
+          a(href='https://jetpack-delivery.tk/other')
+            i.ti-bell
+            p &#x5E9;&#x5D5;&#x5E0;&#x5D5;&#x5EA;
+        li
+          a(href='https://jetpack-delivery.tk/costumer_list')
+            i.ti-bell
+            p &#x5E8;&#x5E9;&#x5D9;&#x5DE;&#x5EA; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+  .main-panel
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button')
+            span.sr-only Toggle navigation
+            span.icon-bar.bar1
+            span.icon-bar.bar2
+            span.icon-bar.bar3
+          a.navbar-brand(href='#') &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.dropdown-toggle(href='#' data-toggle='dropdown')
+                i.ti-panel
+                p Stats
+            li.dropdown
+              a.dropdown-toggle(href='#' data-toggle='dropdown')
+                i.ti-bell
+                p.notification 5
+                p Notifications
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Notification 1
+                li
+                  a(href='#') Notification 2
+                li
+                  a(href='#') Notification 3
+                li
+                  a(href='#') Notification 4
+                li
+                  a(href='#') Another notification
+            li
+              a(href='#')
+                i.ti-settings
+                p Settings
+    button(type='button' onclick='chargeCostumer()') &#x5D7;&#x5D9;&#x5D5;&#x5D1; &#x5DC;&#x5E7;&#x5D5;&#x5D7;
+    button(type='button' onclick='unchargeCostumer()') &#x5D6;&#x5D9;&#x5DB;&#x5D5;&#x5D9; &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+    input#Costumers(list='CostumersDataList' placeholder='בחר לקוח')
+    datalist#CostumersDataList
+    label(for='start') &#x5D1;&#x5D7;&#x5E8; &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA;:
+    input#date_costumer(type='date' name='trip-start' value='2018-07-22' min='2018-01-01' max='2018-12-31' format='YYYY-MM-DD')
+    input#choose_amount(input='number' placeholder='בחר סכום' value='0')
+    #addDelivery
+      button(type='button' onclick='addDelivery()') &#x5D4;&#x5DB;&#x5E0;&#x5E1; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;
+      input#CostumersAddDelivery(list='CostumersDataList' placeholder='בחר לקוח')
+      datalist#CostumersDataList
+      label(for='start') &#x5D1;&#x5D7;&#x5E8; &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA;:
+      input#date_costumer_add_delivery(type='date' name='trip-start' value='2018-07-22' min='2018-01-01' max='2018-12-31' format='YYYY-MM-DD')
+      input#addDelivCity(type='text' placeholder='עיר')
+      input#addDelivAdress(type='text' placeholder='כתובת')
+      input#addDelivprice(type='text' placeholder='מחיר')
+      input#addDelivCustName(type='text' placeholder='שם לקוח')
+    div
+      | &#x5D4;&#x5DB;&#x5E0;&#x5E1; &#x5E7;&#x5D5;&#x5D1;&#x5E5; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD; &#x5D3;&#x5D7;&#x5D5;&#x5D9;&#x5D9;&#x5DD; 
+      input#input-excel(type='file')
+    #chartContainer(style='height: 370px; width: 100%;')
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD; &#x5E4;&#x5E2;&#x5D9;&#x5DC;&#x5D9;&#x5DD;
+                p.category
+              .content.table-responsive.table-full-width
+                table#notDoneTable.table.table-hover
+                  thead
+                    th &#x5DE;&#x5E1;&apos; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA;
+                    th &#x5E9;&#x5E2;&#x5EA; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5E2;&#x5D9;&#x5E8;
+                    th &#x5DC;&#x5DB;&#x5EA;&#x5D5;&#x5D1;&#x5EA;
+                    th &#x5E9;&#x5DD; &#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5E1;&#x5D8;&#x5D0;&#x5D8;&#x5D5;&#x5E1;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5E6;&#x5D9;&#x5D5;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D9;&#x5E6;&#x5D9;&#x5D0;&#x5D4; &#x5DE;&#x5D4;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5DE;&#x5D6;&#x5D5;&#x5DE;&#x5DF;\&#x5D0;&#x5E9;&#x5E8;&#x5D0;&#x5D9;
+                    th &#x5DE;&#x5D7;&#x5D9;&#x5E8;
+                    th &#x5E9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;&#x5D7;
+                    th &#x5DE;&#x5E1;&apos; &#x5D7;&#x5D1;&#x5D9;&#x5DC;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5DB;&#x5E0;&#x5D4;
+                    th &#x5D1;&#x5D5;&#x5E0;&#x5D5;&#x5E1; &#x5D0;&#x5D9;&#x5D7;&#x5D5;&#x5E8;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5EA;&#x5D7;&#x5D9;&#x5D9;&#x5D1;&#x5D5;&#x5EA;
+          p#deliv_amount &#x5E1;&#x5D4;&apos;&apos;&#x5DB; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;:
+          p#deliv_amount_sorted &#x5E1;&#x5D4;&apos;&apos;&#x5DB; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;:
+          #divsort
+            p &#x5DE;&#x5D9;&#x5D9;&#x5DF; &#x5DC;&#x5E4;&#x5D9;:
+            label(for='start') &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA; &#x5D4;&#x5EA;&#x5D7;&#x5DC;&#x5D4;:
+            input#start_date_sort(type='date' name='trip-start' value='2018-07-22' min='2018-01-01' max='2018-12-31' format='YYYY-MM-DD')
+            input#area_sort(type='text' placeholder='איזור')
+            label(for='start') &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA; &#x5E1;&#x5D9;&#x5D5;&#x5DD;:
+            input#end_date_sort(type='date' name='trip-start' value='2018-07-22' min='2018-01-01' max='2018-12-31')
+            label(for='start') &#x5DE;&#x5D9;&#x5D9;&#x5DF; &#x5DC;&#x5E4;&#x5D9; &#x5DE;&#x5DC;&#x5DC;:
+            input#sortInfo(type='text' value='')
+            br
+            button(type='button' onclick='sort()') &#x5DE;&#x5D9;&#x5D9;&#x5DF;
+            button(type='button' onclick='addCondition()') add condition
+            button(type='button' onclick='withoutCondition()') without condition
+            br
+          button(type='button' onclick='on_export_click()') &#x5D4;&#x5D5;&#x5E6;&#x5D0; &#x5DC;CSV
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD; &#x5D2;&#x5DE;&#x5D5;&#x5E8;&#x5D9;&#x5DD;
+                p.category
+              .content.table-responsive.table-full-width
+                table#DoneTable.table.table-hover
+                  thead
+                    th &#x5DE;&#x5E1;&apos; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA;
+                    th &#x5E9;&#x5E2;&#x5EA; &#x5D4;&#x5D6;&#x5DE;&#x5E0;&#x5D4;
+                    th &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5E2;&#x5D9;&#x5E8;
+                    th &#x5DC;&#x5DB;&#x5EA;&#x5D5;&#x5D1;&#x5EA;
+                    th &#x5E9;&#x5DD; &#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5E1;&#x5D8;&#x5D0;&#x5D8;&#x5D5;&#x5E1;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5E6;&#x5D9;&#x5D5;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D9;&#x5E6;&#x5D9;&#x5D0;&#x5D4; &#x5DE;&#x5D4;&#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5DE;&#x5D6;&#x5D5;&#x5DE;&#x5DF;\&#x5D0;&#x5E9;&#x5E8;&#x5D0;&#x5D9;
+                    th &#x5DE;&#x5D7;&#x5D9;&#x5E8;
+                    th &#x5E9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;&#x5D7;
+                    th &#x5DE;&#x5E1;&apos; &#x5D7;&#x5D1;&#x5D9;&#x5DC;&#x5D5;&#x5EA;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5DB;&#x5E0;&#x5D4;
+                    th &#x5D1;&#x5D5;&#x5E0;&#x5D5;&#x5E1; &#x5D0;&#x5D9;&#x5D7;&#x5D5;&#x5E8;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5EA;&#x5D7;&#x5D9;&#x5D9;&#x5D1;&#x5D5;&#x5EA;
+                    th &#x5D0;&#x5D9;&#x5D7;&#x5D5;&#x5E8; &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5D0;&#x5D9;&#x5D7;&#x5D5;&#x5E8; &#x5E9;&#x5DC;&#x5D9;&#x5D7;
+                    th &#x5D4;&#x5E2;&#x5E8;&#x5D4;
+    footer.footer
+      .container-fluid
+        nav.pull-left
+          ul
+            li
+              a(href='http://www.creative-tim.com')
+                | Creative Tim
+            li
+              a(href='http://blog.creative-tim.com')
+                | Blog
+            li
+              a(href='http://www.creative-tim.com/license')
+                | Licenses
+        .copyright.pull-right
+          | &copy; 
+          script.
+            document.write(new Date().getFullYear())
+          | , made with 
+          i.fa.fa-heart.heart
+          |  by 
+          a(href='http://www.creative-tim.com') Creative Tim
+// Core JS Files
+script(src='assets/js/jquery.min.js' type='text/javascript')
+script(src='assets/js/bootstrap.min.js' type='text/javascript')
+// Checkbox, Radio & Switch Plugins
+script(src='assets/js/bootstrap-checkbox-radio.js')
+// Charts
+script(src='https://canvasjs.com/assets/script/canvasjs.min.js')
+// Charts Plugin
+script(src='assets/js/chartist.min.js')
+// Notifications Plugin
+script(src='assets/js/bootstrap-notify.js')
+// Google Maps Plugin
+script(type='text/javascript' src='https://maps.googleapis.com/maps/api/js')
+// Paper Dashboard Core javascript and methods for Demo purpose
+script(src='assets/js/paper-dashboard.js')
+// Paper Dashboard DEMO methods, don't include it in your project!
+script(src='assets/js/demo.js')
+script(src='https://www.gstatic.com/firebasejs/5.8.1/firebase.js')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript')
+script(src='https://unpkg.com/xlsx/dist/xlsx.full.min.js')
+script(type='text/javascript' src='js/functions.js')
+script.
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippe
+  var config = {
+  apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+  authDomain: "jetpack-f6617.firebaseapp.com",
+  databaseURL: "https://jetpack-f6617.firebaseio.com",
+  projectId: "jetpack-f6617",
+  };
+  let table_size = 19;
+  let num_deliv = 0;
+  let num_deliv_sorted = 0;
+  let CostumerList = [];
+  let deliv_month_table = [0,0,0,0,0,0,0,0,0,0,0,0];
+  let table1;
+  let table2;
+  firebase.initializeApp(config);
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) 
+  {
+  console.log("aaaa "); 
+  } 
+  else 
+  {
+  window.location.replace("https://jetpack-delivery.tk/login"); 
+  console.log("bbbb ");
+  }
+  });
+
+  $('#input-excel').change(function(e){
+  console.log("fff");
+  var reader = new FileReader();
+  reader.readAsArrayBuffer(e.target.files[0]);
+  reader.onload = function(e) {
+  var data = new Uint8Array(reader.result);
+  var wb = XLSX.read(data,{type:'array'});
+  var first_sheet_name = wb.SheetNames[0];
+  var worksheet = wb.Sheets[first_sheet_name];
+  var temp = 	XLSX.utils.sheet_to_json(worksheet);
+  for(var i=0; i< temp.length; i++)
+  {
+  addDelayedDeliv(temp,i);
+  }
+  //	addDelayedDeliv(temp,0);
+  //	addCostumer(temp,1);
+  //  var htmlstr = XLSX.write(wb,{sheet:"Sheet1", type:'binary',bookType:'html'});
+  //   console.log("ff2: " + htmlstr);
+  //  $('#wrapper')[0].innerHTML += htmlstr;
+  }
+  });
+  function addDelayedDeliv(column,i)
+  {
+  var restoraunt = column[i]["מסעדה"];
+  if (restoraunt === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var city = column[i]["עיר"];
+  if (city === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var regex = /\\d{4}-\d{2}-\d{2}/;
+  var delayed_date = column[i]["תאריך"];
+  var found = delayed_date.match(regex);
+  if (delayed_date === undefined || found === null)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var dest_add = column[i]["כתובת יעד"];
+  if (dest_add === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var building = column[i]["בניין"];
+  if (building === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var apartment = column[i]["דירה"];
+  if (apartment === undefined)
+  {
+  apartment = "";
+  }
+  var entrance = column[i]["כניסה"];
+  if (entrance === undefined)
+  {
+  entrance = "";
+  }
+  var street = column[i]["רחוב"];
+  if (street === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var comment = column[i]["הערה"];
+  if (comment === undefined)
+  {
+  comment = "";
+  }
+  var name = column[i]["שם לקוח"];
+  if (name === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var phone = column[i]["טלפון"];
+  if (phone === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  }
+  var another_phone = column[i]["טלפון נוסף"];
+  if (another_phone === undefined)
+  {
+  another_phone = "";
+  }
+  var floor = column[i]["קומה"];
+  if (floor === undefined)
+  {
+  floor = "";
+  }
+  var hour = column[i]["שעה"];
+  console.log("rrr: " + hour);
+  if (hour === undefined)
+  {
+  alert("קלט לא חוקי" + "שורה:"  + i);
+  return;
+  }
+  var price = column[i]["מחיר"];
+  if (price === undefined)
+  {
+  price = "";
+  }
+  var is_cash = column[i]["מזומן"];
+  if (is_cash === undefined)
+  {
+  is_cash = "";
+  }
+  var is_cash_bool = false;
+  if (is_cash === "כן")
+  {
+  is_cash_bool = true;
+  }
+  var date = new Date();
+  let formatted_date = date.getFullYear()  + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+  var refRes = firebase.database().ref().child('Restoraunt');
+  var refDev = firebase.database().ref().child('Delayed_Delivery');
+  let delivery = { adressFrom: "",
+  adressTo: dest_add,
+  apartment: apartment,
+  building: building,
+  business_name: restoraunt,
+  city: city,
+  comment: comment,
+  costumerName: name,
+  costumer_another_phone: another_phone,
+  costumer_phone: phone,
+  date: formatted_date,
+  deliveryGuyName: "",
+  deliveryGuyPhone: "",
+  delivery_guy_index_assigned: "",
+  dest_cord_lat: 0,
+  dest_cord_long:0,
+  different_address: "" ,
+  entrance: entrance,
+  floor: floor,
+  index: -1,
+  indexString: "-1",
+  intercum_num: "",
+  is_cash: is_cash_bool,
+  is_deleted: false,
+  is_different_adress: false,
+  is_gas_sta: false,
+  is_out_of_town_delivery: false,
+  just_assigned_deliv: false,
+  key: "",
+  num_of_packets: "1",
+  prepare_time: "15",
+  prepare_time_modified: "",
+  price: price,
+  restoraunt_key: "",
+  restoraunt_phone: "",
+  source_cord_lat: 0,
+  source_cord_long: 0,
+  status: "A",
+  street: street,
+  timeArriveToRestoraunt: "",
+  timeDeliver: "",
+  timeInserted: "",
+  timeTaken:"",
+  time_aprox_deliver: "",
+  time_aprox_deliver_first_not_late:"",
+  time_aprox_deliver_to_rest: "",
+  time_aprox_deliver_to_rest_first_not_late:"",
+  time_assigned: "",
+  time_bonus: 0 ,
+  time_late_by_deliveries: "",
+  time_late_by_rest: "",
+  time_max_to_costumer: 60,
+  time_modified_for_prepare: "",
+  was_late_deliveries: false,
+  was_late_restoraunt: false,
+  delayed_date: delayed_date,
+  delayed_hour: hour,
+  }
+  refRes.once("value",function(snap){
+  snap.forEach(function(child){
+  if (child.val().name === restoraunt)
+  {
+  delivery.restoraunt_key = child.val().key;
+  delivery.restoraunt_phone = child.val().phone;
+  delivery.source_cord_lat = child.val().lat;
+  delivery.source_cord_long = child.val().longt;
+  }
+  });
+  refDev.push(delivery);
+  })
+  return;
+  }
+  //set chart by months
+  var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  exportEnabled: true,
+  theme: "light1", // "light1", "light2", "dark1", "dark2"
+  title:{
+  text: "כמות משלוחים לפי חודשים"
+  },
+  data: [{
+  type: "column", //change type to bar, line, area, pie, etc
+  //indexLabel: "{y}", //Shows y value on all Data Points
+  indexLabelFontColor: "#5A5757",
+  indexLabelPlacement: "outside",
+  dataPoints: [
+  {x:10 ,label: "ינואר", y: 71,indexLabel: "{y}" },
+  { x: 20, y: 55 , label: "פברואר",indexLabel: "{y}" },
+  { x: 30, y: 50, label: "מרץ",indexLabel: "{y}" },
+  { x: 40, y: 65, label: "אפריל",indexLabel: "{y}" },
+  { x: 50, y: 92,  label: "מאי" ,indexLabel: "{y}"},
+  { x: 60, y: 68, label: "יוני",indexLabel: "{y}" },
+  { x: 70, y: 38, label: "יולי",indexLabel: "{y}" },
+  { x: 80, y: 71, label: "אוגוסט",indexLabel: "{y}" },
+  { x: 90, y: 54 , label: "ספטמבר",indexLabel: "{y}"},
+  { x: 100, y: 60, label: "אוקטובר",indexLabel: "{y}" },
+  { x: 110, y: 36 , label: "נובמבר",indexLabel: "{y}"},
+  { x: 120, y: 49 , label: "דצמבר",indexLabel: "{y}"}
+  ]
+  }]
+  });
+  var ref = firebase.database().ref().child('Deliveries');
+  var refDone = firebase.database().ref().child('Deliveries_Done');
+  var refDoneDate_modified = firebase.database().ref().child('Deliveries_Done_Date_modified');
+  var refDoneDateMonth = firebase.database().ref().child('Deliveries_Done_months');
+  var refCostumers = firebase.database().ref().child('Restoraunt');
+  refCostumers.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  CostumerList.push(child.val().name);
+  console.log(child.val().name);
+  })
+  var options = "";
+  for (var i = 0; i< CostumerList.length ; i++)
+  {
+  options += '<option value="'+CostumerList[i]+'" />';
+  }
+  document.getElementById('CostumersDataList').innerHTML = options;
+  });
+  ref.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  if (child.val().is_deleted === false  && child.val().status !== "D"  && child.val().indexString !== "-1" )
+  {
+  var table = document.getElementById("notDoneTable");
+  setRow(table,child.val())
+  table1 = table;
+  }
+  });
+  });
+  var date = new Date();
+  document.getElementById("start_date_sort").value = formatDate(date);
+  document.getElementById("end_date_sort").max = formatDate(date)
+  document.getElementById("date_costumer").max = formatDate(date)
+  document.getElementById("end_date_sort").value = formatDate(date);
+  var dateNow = formatDate(date);
+  console.log("fff " + dateNow);
+  refDoneDate_modified.orderByKey().startAt(dateNow).endAt(dateNow).once("value", function(snapshot) {
+  //console.log("fff2 " + snapshot.length);
+  snapshot.forEach(function(snap2) {
+  snap2.forEach(function(child) {
+  var table = document.getElementById("DoneTable");
+  setRow(table,child.val())
+  table2 = table;
+  num_deliv++;
+  num_deliv_sorted++;
+  })
+ 
+  });
+  document.getElementById("deliv_amount").innerHTML =  "כמות משלוחים שבוצעו סה''כ:"  + " " +  num_deliv  ;
+  document.getElementById("deliv_amount_sorted").innerHTML =  "כמות משלוחים ממוינים:"  + " " +  num_deliv_sorted  ;
+  });
+  refDoneDateMonth.orderByKey().once("value", function(snapshot) {
+  snapshot.forEach(function(child) {	
+  let month_idx =  child.key //parseInt(extractMonthFirebase(child.val().date));
+  if (month_idx != null)
+  {
+  deliv_month_table[month_idx-1] = child.val().val;
+  }
+  });
+  for (var i=0; i< 12; i++)
+  {
+  chart.options.data[0].dataPoints[i].y = deliv_month_table[i];
+  }
+  chart.render();
+  });
+  
+  var addAmount = 0;
+  function addCondition()
+  {
+  var input = document.createElement("input");
+  input.type = "text";
+  input.id = "cond" + addAmount;
+  addAmount = addAmount + 1;
+  document.getElementById("divsort").innerHTML += "הוסף תנאי"
+  document.getElementById("divsort").appendChild(input);
+  var temp = document.getElementById("cond0").value;
+  
+  }
+  var addAmountWithout = 0;
+  function withoutCondition()
+  {
+  var input = document.createElement("input");
+  input.type = "text";
+  input.id = "condnot" + addAmountWithout;
+  addAmountWithout = addAmountWithout + 1;
+  document.getElementById("divsort").innerHTML += " הוסף תנאי ללא"
+  document.getElementById("divsort").appendChild(input);
+  }
+  function sort()
+  {
+  console.log("sort");
+  var tableHeaderRowCount = 1;
+  var table = document.getElementById('DoneTable');
+  var rowCount = table.rows.length;
+  for (var i = tableHeaderRowCount; i < rowCount; i++) {
+  table.deleteRow(tableHeaderRowCount);
+  }
+  //var rows = table2.rows;
+  var start_date = document.getElementById("start_date_sort").value;
+  var end_date = document.getElementById("end_date_sort").value;
+  var free_sort = document.getElementById("end_date_sort").value;
+  var area_sort = document.getElementById("area_sort").value;
+  let ref = area_sort == null || area_sort == 0 ? "" : area_sort + "/"
+  let num_deliv_sorted = 0;
+  num_deliv = 0;
+  num_deliv_sorted = 0;
+  let sortValue = document.getElementById("sortInfo").value;
+  //zero is the title
+  firebase.database().ref().child(ref +'Deliveries_Done_Date_modified').orderByKey().startAt(start_date).endAt(end_date).once("value", function(snapshot) {
+  snapshot.forEach(function(snap2) {
+  snap2.forEach(function(child) {
+  if (child.val().is_deleted === false)
+  {
+  num_deliv++;
+  let not_need = false;
+  let found_Sort = false;
+  Object.values(child.val()).forEach(function(value_string) {
+  let value = value_string.toString();
+  if (value.includes(sortValue))
+  {
+  found_Sort = true;
+  }
+  else
+  {
+  for (var k=0; k<addAmount; k++)
+  {
+  let sortadd = document.getElementById("cond" + k).value;
+  if (value.includes(sortadd))
+  {
+  found_Sort = true;
+  break;
+  }
+  }
+  }
+  for (var k=0; k<addAmountWithout; k++)
+  {
+  let sortadd = document.getElementById("condnot" + k).value;
+  if (value.includes(sortadd))
+  {
+  not_need = true;
+  break;
+  }
+  }
+  })
+  if (found_Sort == true && not_need == false)
+  {
+  //console.log("val: " + child.val().indexString +  " " + found_Sort + " " + not_need);
+  num_deliv_sorted++;
+  setRow(table,child.val())
+  }
+  }
+  });
+  });
+  document.getElementById("deliv_amount").innerHTML =  "כמות משלוחים שבוצעו סה''כ:"  + " " +  num_deliv  ;
+  document.getElementById("deliv_amount_sorted").innerHTML =  "כמות משלוחים ממוינים:"  + " " +  num_deliv_sorted
+  });
+  }
+  function chargeCostumer()
+  {
+  var costumer = document.getElementById("Costumers").value;
+  if (costumer === null || costumer === "" || costumer === undefined)
+  {
+  //use web flow for gui
+  alert("נא לבחור לקוח");
+  return;
+  }
+  var formatted_date = document.getElementById("date_costumer").value;
+  //console.log("ttt: " + chosen_date);
+  //let formatted_date = chosen_date.getFullYear()  + "-" + (chosen_date.getMonth() + 1) + "-" + chosen_date.getDate()
+  var chosen_amount = document.getElementById("choose_amount").value;
+  var ref = firebase.database().ref().child('Restoraunt');
+  var key = "error";
+  var charge;
+  ref.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  if (child.val().name === costumer)
+  {
+  key = child.key;
+  charge = {
+  date:formatted_date,
+  price: parseInt(chosen_amount),
+  }
+  }
+  })
+  if (key !== "error")
+  {
+  ref.child(key).child("charge").push(charge);
+  }
+  });
+  alert(formatted_date + "  " + chosen_amount+  " בוצע חיוב");
+  }
+  
+  function on_export_click()
+  {
+  var table = document.getElementById("DoneTable");
+  var temp = table.outerHTML;
+  export_table_to_csv(temp, "table.csv",table);
+  }
+  
+  function unchargeCostumer()
+  {
+  var costumer = document.getElementById("Costumers").value;
+  if (costumer === null || costumer === "" || costumer === undefined)
+  {
+  //use web flow for gui
+  alert("נא לבחור לקוח");
+  return;
+  }
+  var formatted_date = document.getElementById("date_costumer").value;
+  var chosen_amount = document.getElementById("choose_amount").value;
+  var ref = firebase.database().ref().child('Restoraunt');
+  var key = "error";
+  var charge;
+  ref.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  if (child.val().name === costumer)
+  {
+  key = child.key;
+  charge = {
+  date:formatted_date,
+  price: parseInt(chosen_amount)*(-1),
+  }
+  }
+  })
+  if (key !== "error")
+  {
+  console.log("ttttt" + charge.price);
+  ref.child(key).child("charge").push(charge);
+  }
+  });
+  alert(formatted_date + "  " + chosen_amount+  " בוצע זיכוי");
+  }
+  function addDelivery()
+  {
+  var costumer = document.getElementById("CostumersAddDelivery").value;
+  var date = document.getElementById("date_costumer_add_delivery").value;
+  var city = document.getElementById("addDelivCity").value;
+  var addDelivAdress = document.getElementById("addDelivAdress").value;
+  var addDelivprice = document.getElementById("addDelivprice").value;
+  var addDelivCustName = document.getElementById("addDelivCustName").value;
+  if (costumer === null || costumer === "" || costumer === undefined)
+  {
+  alert("נא לבחור לקוח");
+  return;
+  }
+  if (city === null || city === "" || city === undefined)
+  {
+  alert("נא לבחור עיר");
+  return;
+  }
+  if (addDelivAdress === null || addDelivAdress === "" || addDelivAdress === undefined)
+  {
+  alert("נא לבחור כתובת");
+  return;
+  }
+  if (addDelivprice === null || addDelivprice === "" || addDelivprice === undefined)
+  {
+  alert("נא לבחור מחיר");
+  return;
+  }
+  if (addDelivCustName === null || addDelivCustName === "" || addDelivCustName === undefined)
+  {
+  alert("נא לבחור שם לקוח");
+  return;
+  }
+  let delivery = { adressFrom: "",
+  adressTo: addDelivAdress,
+  apartment: "",
+  building: "",
+  business_name: costumer,
+  city: city,
+  comment: "",
+  costumerName: addDelivCustName,
+  costumer_another_phone: "",
+  costumer_phone: "",
+  date: date,
+  deliveryGuyName: "",
+  deliveryGuyPhone: "",
+  delivery_guy_index_assigned: "",
+  dest_cord_lat: parseFloat(0),
+  dest_cord_long: parseFloat(0),
+  different_address: "" ,
+  entrance: "",
+  floor:"",
+  index: -1,
+  indexString: "-1",
+  intercum_num: "",
+  is_cash: true,
+  is_deleted: false,
+  is_different_adress: false,
+  is_gas_sta: false,
+  is_out_of_town_delivery: false,
+  just_assigned_deliv: false,
+  key: "",
+  num_of_packets: "1",
+  prepare_time: "15",
+  prepare_time_modified: "",
+  price: addDelivprice,
+  restoraunt_key: "",
+  restoraunt_phone: "",
+  source_cord_lat: parseFloat(0),
+  source_cord_long: parseFloat(0),
+  status: "D",
+  street: addDelivAdress,
+  timeArriveToRestoraunt: "",
+  timeDeliver: "",
+  timeInserted: "",
+  timeTaken:"",
+  time_aprox_deliver: "",
+  time_aprox_deliver_first_not_late:"",
+  time_aprox_deliver_to_rest: "",
+  time_aprox_deliver_to_rest_first_not_late:"",
+  time_assigned: "",
+  time_bonus: parseFloat(0),
+  time_late_by_deliveries: "",
+  time_late_by_rest: "",
+  time_max_to_costumer: parseFloat(60),
+  time_modified_for_prepare: "",
+  was_late_deliveries: false,
+  was_late_restoraunt: false
+  }
+  ref.push(delivery);
+  }
+  //alert("fff");

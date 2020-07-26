@@ -1,0 +1,116 @@
+<!-- <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/webseite-erstellen-lassen/"></a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div> -->
+doctype html
+html(lang="he")
+   head
+    style.
+        #map {height: 800px; width: 100%;}
+   body(dir="rtl")
+
+    h3#first
+    h3 ניתן לעקוב אחרי השליח 
+    h3#second 
+    div 
+        img#image(src='”…”' style='”display:none;height: 200px;width: 200px;”')
+     
+    div#map 
+    h3#third 
+    script(src='https://www.gstatic.com/firebasejs/5.8.1/firebase.js')
+    script.
+        // Initialize and add the map
+        function initMap() {
+        // The location of Uluru
+        var deliv_index = "#{index}";
+        var time_deliver = "#{time_arrived}";
+        var myLatlng = null;
+        var map = null;
+        var marker = null;
+        var name = "";
+        var area = "#{area}"
+        let modiin = {lat: 31.899160, lng: 35.007408};
+        switch (area)
+        {
+        case "0":
+        modiin = {lat: 31.8903, lng:35.0104};
+
+        break;
+        case "1":
+        modiin = {lat: 31.7683, lng:35.2137};
+
+        break;
+        case "2":
+        modiin = {lat: 32.0132, lng:34.7480};
+
+        break;
+        case "3":
+        modiin = {lat: 31.6688, lng:34.5743};
+
+        break;
+        case "4":
+        modiin = {lat:  32.0158, lng:34.7874};
+
+        break;
+        default:
+        modiin = {lat: 31.8903, lng:35.0104};
+        break;
+        } 
+        //- var uluru = {lat: 31.899160, lng: 35.007408};
+        // The map, centered at Uluru
+        map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 17, center: modiin,mapTypeControl: false,fullscreenControl: true});
+        // The marker, positioned at Uluru
+        marker = new google.maps.Marker({position: modiin, map: map});
+        
+        
+        document.getElementById("first").innerHTML = "ברוכים הבאים " + "ל" +"jetpack" +" משלוחים"; 
+        document.getElementById("third").innerHTML = "תודה שבחרתם" + " jetpack" + " משלוחים";
+        
+        
+        var config = {
+        apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+        authDomain: "jetpack-f6617.firebaseapp.com",
+        databaseURL: "https://jetpack-f6617.firebaseio.com",
+        storageBucket: "jetpack-f6617.appspot.com",
+        };
+        firebase.initializeApp(config);
+        var deliv_index = "#{index}";
+        console.log("deliv: " + deliv_index)
+        let ref = area ? area + "/" : ""
+        var delivGuyRef = firebase.database().ref(ref + "Delivery_Guys").child(deliv_index);
+        delivGuyRef.on("value",function(snap){
+        console.log("fff f:" + snap.val()  );
+        lat = snap.val().latetude;
+        long = snap.val().longtitude;
+        name = snap.val().name;
+        time_arrive = snap.val().time_aprox_deliver
+        myLatlng = new google.maps.LatLng(lat,long);
+        marker.setPosition(myLatlng);
+        map.setCenter(myLatlng);
+        console.log("fff lat:" + lat + " long: " + long );
+        document.getElementById("second").innerHTML ="שם השליח: "  + "<b>"+ name + "</b>" + " זמן הגעה משוער: " +  "<b>"+ time_deliver + "</b>";
+        });
+        
+        var temp2 = "profile/image_profile" + deliv_index + ".jpg";
+        var storageRef = firebase.storage().ref().child(temp2);
+        var image = document.getElementById("image");
+        storageRef.getDownloadURL().then(function(url)
+        {
+        const img = new Image();
+        img.src = url;
+        // Once image is loaded replace the src of the HTML element
+        img.onload = () => {
+        
+        return image.src = url;
+        };
+                //   image.src = url;
+        image.style.display = "block";
+        //- image.style.transform = 'rotate(270deg)';
+                //console.log("fff url:" + url );
+        }).catch(function(e) {
+        console.log("rr223 " +e );
+        })
+
+        
+       
+
+        }
+    script(async, defer,src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRsUgG1Jssyfe7pGYDJHhHU4viezKhghA&callback=initMap")

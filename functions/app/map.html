@@ -1,0 +1,69 @@
+<!-- <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/webseite-erstellen-lassen/"></a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 800px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <p id="myLog"></p>
+  <body>
+    <h3> משלוחים jetpack ברוכים הבאים ל </h3>
+    <h3>ניתן לעקוב אחרי השליח שלכם</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <h3>jetpack תודה שבחרתם</h3>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+
+var myLatlng = null;
+var marker = null;
+var map = null;
+  var config = {
+    apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+    authDomain: "jetpack-f6617.firebaseapp.com",
+    databaseURL: "https://jetpack-f6617.firebaseio.com"
+  };
+  firebase.initializeApp(config);
+  var rootRef = firebase.database().ref("Delivery_Guys").child("3");
+  rootRef.on("value", function(snapshot){
+      lat = snapshot.val().latetude;
+      long = snapshot.val().longtitude;
+      myLatlng = new google.maps.LatLng(lat,long);
+      marker.setPosition(myLatlng);
+      map.setCenter(myLatlng);
+});
+    window.console = {
+  log: function(str){
+    var node = document.createElement("div");
+    node.appendChild(document.createTextNode(str));
+    document.getElementById("myLog").appendChild(node);
+  }
+}
+
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+   map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: uluru,mapTypeControl: false,fullscreenControl: true});
+  // The marker, positioned at Uluru
+ marker = new google.maps.Marker({position: uluru, map: map});
+
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRsUgG1Jssyfe7pGYDJHhHU4viezKhghA&callback=initMap">
+    </script>
+  </body>
+</html>

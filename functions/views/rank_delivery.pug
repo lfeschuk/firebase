@@ -1,0 +1,231 @@
+
+
+
+doctype html
+html(lang="he")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Welcome to Jetpack Delivery
+
+    
+
+  style(media="screen").
+    body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 1px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #message button{ margin:auto; display:block;}
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+      .rating {
+        display: inline-block;
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+        }
+
+    .rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+    }
+
+    .rating label:last-child {
+    position: static;
+    }
+
+    .rating label:nth-child(1) {
+    z-index: 5;
+    }
+
+    .rating label:nth-child(2) {
+    z-index: 4;
+    }
+
+    .rating label:nth-child(3) {
+    z-index: 3;
+    }
+
+    .rating label:nth-child(4) {
+    z-index: 2;
+    }
+
+    .rating label:nth-child(5) {
+    z-index: 1;
+    }
+
+    .rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    }
+
+    .rating label .icon {
+    float: left;
+    color: transparent;
+    }
+
+    .rating label:last-child .icon {
+    color: #000;
+    }
+
+    .rating:not(:hover) label input:checked ~ .icon,
+    .rating:hover label:hover input ~ .icon {
+    color: #ffff66;
+    }
+
+    .rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #ffff66;
+    }
+  
+      
+     
+      
+
+  
+  
+  body(dir="rtl")
+    div#message
+    
+      h2  ברוך הבא ל jetpack משלוחים
+      h2 חוויתכם חשובה לנו, נשמח לקבל ביקורת על המשלוח
+      h1 בתאריך: #{date}
+      h1 בשעה: #{time}
+      p עד כמה אתה מרוצה מהמשלוח:
+      p(id="myLog")
+      form.rating
+        label
+            input(type='radio', name='stars', value='1')
+            span.icon ★
+        label
+            input(type='radio', name='stars', value='2')
+            span.icon ★
+            span.icon ★
+        label
+            input(type='radio', name='stars', value='3')
+            span.icon ★
+            span.icon ★
+            span.icon ★
+        label
+            input(type='radio', name='stars', value='4')
+            span.icon ★
+            span.icon ★
+            span.icon ★
+            span.icon ★
+        label
+            input(type='radio', name='stars', value='5')
+            span.icon ★
+            span.icon ★
+            span.icon ★
+            span.icon ★
+            span.icon ★
+      form(id="submit", action="/rank_delivery",method="post",name="theForm")
+        table   
+          tbody
+            tr 
+                td(id="q1")
+                td(style='text-align: left; width:110px;')
+                    input(type="radio" , value="כן",name="satisfied1",checked="checked")
+                    | כן
+                    input(type="radio" , value="לא",name="satisfied1")
+                    | לא
+            tr
+               td(id="q2")
+                td(style='text-align: left; width:110px;')
+                    input(type="radio" , value="כן",name="satisfied2",checked="checked")
+                    | כן
+                    input(type="radio" , value="לא",name="satisfied2")
+                    | לא
+            tr
+               td(id="q3")
+                td(style='text-align: left; width:110px;')
+                    input(type="radio" , value="כן",name="satisfied3",checked="checked")
+                    | כן
+                    input(type="radio" , value="לא",name="satisfied3")
+                    | לא
+            tr
+                td(id="q4")
+                td(style='text-align: left; width:110px;')
+                    input(type="radio" , value="כן",name="satisfied4",checked="checked")
+                    | כן
+                    input(type="radio" , value="לא",name="satisfied4")
+                    | לא
+        button(name="button",value="123",type="submit") אישור
+        input(type="hidden" ,name='ic',id="im", value = index ) 
+        input(type="hidden" ,name='icdate',id="im2", value = date )
+        input(type="hidden" ,name='icarea',id="im3", value = area )
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script(src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js")
+    script.
+        var config = {
+        apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+        authDomain: "jetpack-f6617.firebaseapp.com",
+        databaseURL: "https://jetpack-f6617.firebaseio.com",
+        projectId: "jetpack-f6617",
+        storageBucket: "jetpack-f6617.appspot.com",
+
+        };
+        firebase.initializeApp(config);
+      
+      var refRes = firebase.database().ref().child('Feedback_Quest');
+        refRes.once("value",function(snap){
+          snap.forEach(function(child){
+            if (child.key == 1)
+            {
+                document.getElementById("q1").innerHTML = child.val();
+            }
+            if (child.key == 2)
+            {
+              document.getElementById("q2").innerHTML = child.val();
+            }
+            if (child.key == 3)
+            {
+              document.getElementById("q3").innerHTML = child.val();
+            }
+            if (child.key == 4)
+            {
+              document.getElementById("q4").innerHTML = child.val();
+            }
+          })
+        });
+         window.console = {
+                log: function(str){
+                    var node = document.createElement("div");
+                    node.appendChild(document.createTextNode(str));
+                    document.getElementById("myLog").appendChild(node);
+                }
+                }
+                //- document.getElementByName("stars")[0].change(function(){
+                //-      console.log('New star rating: ' + this.value);
+                //- })
+        var star_amount = 5;
+        $('input[type=radio][name=stars]').change(function() {
+            //- console.log('New star rating: ' + this.value);
+            star_amount = this.value;
+            });
+        $('#submit').submit(function(){ //listen for submit event
+             $('<input />').attr('type', 'hidden')
+                    .attr('name', "start_amount")
+                    .attr('value', star_amount)
+                    .appendTo('#submit');
+                return true;
+            }); 
+            
+                    
+
+
+
+
+    

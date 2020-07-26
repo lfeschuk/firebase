@@ -1,0 +1,485 @@
+doctype html
+head
+  meta(charset='utf-8')
+  link(rel='apple-touch-icon', sizes='76x76', href='assets/img/apple-icon.png')
+  link(rel='icon', type='image/png', sizes='96x96', href='assets/img/favicon.png')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  title Paper Dashboard by Creative Tim
+  meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport')
+  meta(name='viewport', content='width=device-width')
+  // Bootstrap core CSS
+  link(href='assets/css/bootstrap.min.css', rel='stylesheet')
+  // Animation library for notifications
+  link(href='assets/css/animate.min.css', rel='stylesheet')
+  // Paper Dashboard core CSS
+  link(href='assets/css/paper-dashboard.css', rel='stylesheet')
+  // CSS for Demo Purpose, don't include it in your project
+  link(href='assets/css/demo.css', rel='stylesheet')
+  // Fonts and icons
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css', rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Muli:400,300', rel='stylesheet', type='text/css')
+  link(href='assets/css/themify-icons.css', rel='stylesheet')
+style.
+  body {font-family: Arial, Helvetica, sans-serif;}
+  /* The Modal (background) */
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  padding-left:200px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  /* Modal Content */
+  .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  }
+  /* The Close Button */
+  .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  }
+.wrapper
+  .sidebar(data-background-color='white', data-active-color='danger')
+    //
+      Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+      Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+    .sidebar-wrapper
+      .logo
+        a.simple-text(href='http://www.creative-tim.com')
+          | JetPack
+      ul.nav
+        li
+          a(href='https://jetpack-delivery.tk/table')
+            i.ti-view-list-alt
+            p &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+        li
+          a(href='https://jetpack-delivery.tk/costumers')
+            i.ti-text
+            p &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+        li.active
+          a(href='https://jetpack-delivery.tk/users')
+            i.ti-pencil-alt2
+            p &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD;
+        li
+          a(href='https://jetpack-delivery.tk/other')
+            i.ti-bell
+            p &#x5E9;&#x5D5;&#x5E0;&#x5D5;&#x5EA;
+        li
+          a(href='https://jetpack-delivery.tk/costumer_list')
+            i.ti-bell
+            p &#x5E8;&#x5E9;&#x5D9;&#x5DE;&#x5EA; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+  .main-panel
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button')
+            span.sr-only Toggle navigation
+            span.icon-bar.bar1
+            span.icon-bar.bar2
+            span.icon-bar.bar3
+          a.navbar-brand(href='#') &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD;
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.ti-panel
+                p Stats
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.ti-bell
+                p.notification 5
+                p Notifications
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Notification 1
+                li
+                  a(href='#') Notification 2
+                li
+                  a(href='#') Notification 3
+                li
+                  a(href='#') Notification 4
+                li
+                  a(href='#') Another notification
+            li
+              a(href='#')
+                i.ti-settings
+                p Settings
+    // The Modal
+    #myModal.modal
+      input#filebutt(type='file', value='upload')
+      // Modal content
+      .modal-content
+        span.close &times;
+        p
+          | &#x5E9;&#x5DD;: 
+          b#restName This text is bold
+        p
+          | &#x5E9;&#x5D9;&#x5E0;&#x5D5;&#x5D9; &#x5D1;: 
+          b#changeOn This text is bold
+        p
+          | &#x5E2;&#x5E8;&#x5DA; &#x5E7;&#x5D5;&#x5D3;&#x5DD;: 
+          b#prevVal This text is bold
+        |    &#x5D1;&#x5D7;&#x5E8; &#x5E2;&#x5E8;&#x5DA;:
+        input#newVal(type='text')
+        br
+        input#submit_modal(type='submit', value='הזן')
+    #myModal2.modal
+      // Modal content
+      .modal-content
+        span.close &times;
+        img#image(src='”…”', style='”display:none”')
+    #chartContainer(style='height: 370px; width: 100%;')
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD; &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                p.category
+              .content.table-responsive.table-full-width(contenteditable='true', style='z-index: 2000;')
+                table#restorauntPending.table.table-hover
+                  thead
+                    th &#x5E9;&#x5DD; &#x5DE;&#x5E1;&#x5E2;&#x5D3;&#x5D4;
+                    th &#x5DB;&#x5EA;&#x5D5;&#x5D1;&#x5EA;
+                    th &#x5D0;&#x5D9;&#x5D6;&#x5E8;
+                    th &#x5D1;&#x5E0;&#x5D9;&#x5D9;&#x5DF;
+                    th &#x5E2;&#x5D9;&#x5E8;
+                    th &#x5D0;&#x5D9;&#x5E9; &#x5E7;&#x5E9;&#x5E8;
+                    th &#x5EA;&#x5E9;&#x5DC;&#x5D5;&#x5DD; &#x5D7;&#x5D5;&#x5D3;&#x5E9;&#x5D9; &#x5E0;&#x5D5;&#x5E1;&#x5E3;
+                    th &#x5D7;&#x5E9;&#x5D1;&#x5D5;&#x5E0;&#x5D9;&#x5EA;
+                    th &#x5DE;&#x5E1;&#x5E4;&#x5E8; &#x5E2;&#x5D5;&#x5E1;&#x5E7;
+                    th &#x5D0;&#x5D5;&#x5E4;&#x5DF; &#x5EA;&#x5E9;&#x5DC;&#x5D5;&#x5DD;
+                    th &#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D0; &#x5DC;&#x5E7;&#x5D5;&#x5D7;&#x5D5;&#x5EA;
+                    th email
+                    th &#x5E4;&#x5D9;&#x5E6;&apos; 1
+                    th &#x5E4;&#x5D9;&#x5E6;&apos; 2
+                    th &#x5E4;&#x5D9;&#x5E6;&apos; 3
+                    th &#x5E4;&#x5D9;&#x5E6;&apos; 4
+                    th &#x5E9;&#x5D9;&#x5E9;&#x5D9;
+                    th &#x5E9;&#x5D1;&#x5EA;
+                    th &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+                    th latitude
+                    th longtitude
+                    th &#x5DE;&#x5D9;&#x5E0; &#x5E2;&#x5E8;&#x5D1;
+                    th &#x5DE;&#x5D9;&#x5E0; &#x5D1;&#x5D5;&#x5E7;&#x5E8;
+                    th &#x5D8;&#x5DC;&#x5E4;&#x5D5;&#x5DF;
+                    th &#x5D8;&#x5DC;&#x5E4;&#x5D5;&#x5DF; &#x5E0;&#x5D5;&#x5E1;&#x5E3;
+                    th &#x5E8;&#x5D7;&#x5D5;&#x5D1;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5D2;&#x5E2;&#x5D4; &#x5DC;&#x5DC;&#x5E7;&#x5D5;&#x5D7;
+                    th &#x5D6;&#x5DE;&#x5DF; &#x5D4;&#x5DB;&#x5E0;&#x5D4;
+                    th &#x5E9;&#x5DD; &#x5DE;&#x5EA;&#x5E9;&#x5DE;&#x5E9;
+                    th &#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D0;
+                    th &#x5DE;&#x5E1;&#x5E4;&#x5E8; &#x5DE;&#x5E9;&#x5DC;&#x5D5;&#x5D7;&#x5D9;&#x5DD;
+                    th &#x5DE;&#x5E1;&#x5E4;&#x5E8; &#x5EA;&#x5E7;&#x5DC;&#x5D5;&#x5EA;
+                    th &#x5D7;&#x5D5;&#x5E1;&#x5E8; &#x5DE;&#x5D9;&#x5E0;&#x5D9;&#x5DE;&#x5D5;&#x5DD; &#x5D9;&#x5D5;&#x5DE;&#x5D9;
+                    th &#x5D7;&#x5D5;&#x5E1;&#x5E8; &#x5DE;&#x5D9;&#x5E0;&#x5D9;&#x5DE;&#x5D5;&#x5DD; &#x5D7;&#x5D5;&#x5D3;&#x5E9;&#x5D9;
+                    th &#x5E1;&#x5DB;&#x5D5;&#x5DD; &#x5DC;&#x5D7;&#x5D9;&#x5D5;&#x5D1;
+                    th &#x5D7;&#x5D9;&#x5D5;&#x5D1; &#x5E0;&#x5D5;&#x5E1;&#x5E3;
+                    th &#x5E7;&#x5D5;&#x5D5;&#x5D9;&#x5DD; &#x5D1;&#x5D9;&#x5DF; &#x5E2;&#x5D9;&#x5E8;&#x5D5;&#x5E0;&#x5D9;&#x5D9;&#x5DD;
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD; &#x5D0;&#x5D3;&#x5DE;&#x5D9;&#x5DF;
+                p.category
+              .content.table-responsive.table-full-width(contenteditable='true', style='z-index: 2000;')
+                table#adminUsers.table.table-hover
+                  thead
+                    th &#x5E9;&#x5DD;
+                    th &#x5D8;&#x5DC;&#x5E4;&#x5D5;&#x5DF;
+                    th &#x5D0;&#x5D9;&#x5D6;&#x5D5;&#x5E8;
+                    th &#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D0;
+                    th &#x5D0;&#x5D9;&#x5DE;&#x5D9;&#x5D9;&#x5DC;
+    .content
+      .container-fluid
+        .row
+          .col-md-12
+            .card
+              .header
+                h4.title &#x5E9;&#x5DC;&#x5D9;&#x5D7;&#x5D9;&#x5DD;
+                p.category
+              .content.table-responsive.table-full-width(contenteditable='true', style='z-index: 2000;')
+                table#delivUsers.table.table-hover
+                  thead
+                    th &#x5E9;&#x5DD;
+                    th &#x5D8;&#x5DC;&#x5E4;&#x5D5;&#x5DF;
+                    th &#x5D0;&#x5D9;&#x5D6;&#x5D5;&#x5E8;
+                    th &#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D0;
+                    th &#x5E9;&#x5DB;&#x5E8;
+                    th 101
+                    th &#x5E1;&#x5D5;&#x5D3;&#x5D9;&#x5D5;&#x5EA;
+                    th &#x5D7;&#x5D5;&#x5D6;&#x5D4; &#x5E2;&#x5D1;&#x5D5;&#x5D3;&#x5D4;
+    footer.footer
+      .container-fluid
+        nav.pull-left
+          ul
+            li
+              a(href='http://www.creative-tim.com')
+                | Creative Tim
+            li
+              a(href='http://blog.creative-tim.com')
+                | Blog
+            li
+              a(href='http://www.creative-tim.com/license')
+                | Licenses
+        .copyright.pull-right
+          | &copy; 
+          script.
+            document.write(new Date().getFullYear())
+          | , made with 
+          i.fa.fa-heart.heart
+          |  by 
+          a(href='http://www.creative-tim.com') Creative Tim
+// Core JS Files
+script(src='assets/js/jquery.min.js', type='text/javascript')
+script(src='assets/js/bootstrap.min.js', type='text/javascript')
+// Checkbox, Radio & Switch Plugins
+script(src='assets/js/bootstrap-checkbox-radio.js')
+// Charts
+script(src='https://canvasjs.com/assets/script/canvasjs.min.js')
+// Charts Plugin
+script(src='assets/js/chartist.min.js')
+// Notifications Plugin
+script(src='assets/js/bootstrap-notify.js')
+// Google Maps Plugin
+script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js')
+// Paper Dashboard Core javascript and methods for Demo purpose
+script(src='assets/js/paper-dashboard.js')
+// Paper Dashboard DEMO methods, don't include it in your project!
+script(src='assets/js/demo.js')
+script(src='https://www.gstatic.com/firebasejs/5.8.1/firebase.js')
+script(type='text/javascript', src='js/functions.js')
+script.
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippe
+  var config = {
+  apiKey: "AIzaSyApY_ArxtwaDtxdyogV__a5FCudDgsbs3Y",
+  authDomain: "jetpack-f6617.firebaseapp.com",
+  databaseURL: "https://jetpack-f6617.firebaseio.com",
+  projectId: "jetpack-f6617",
+  storageBucket: "jetpack-f6617.appspot.com",
+  };
+  firebase.initializeApp(config);
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) 
+  {
+  console.log("aaaa " + user); 
+  } 
+  else 
+  {
+  window.location.replace("https://jetpack-delivery.tk/login"); 
+  console.log("bbbb " + user);
+  }
+  });
+  let deliv_month_table = [0,0,0,0,0,0,0,0,0,0,0,0];
+  console.log('was here');
+  var deliveries = [];
+  var restoraunts = [];
+  var deliv_guys = [];
+  var dps = []; // dataPoints
+  var view_port_max = 0;
+  //set chart by months
+  var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  exportEnabled: true,
+  theme: "light1", // "light1", "light2", "dark1", "dark2"
+  title:{
+  text: "כמות משלוחים לפי חודשים"
+  },
+  axisX:{
+  includeZero: false,
+  viewportMinimum: 0,
+  viewportMaximum: view_port_max
+  },
+  dataPointWidth: 20,
+  data: [{
+  type: "column", //change type to bar, line, area, pie, etc
+  //indexLabel: "{y}", //Shows y value on all Data Points
+  indexLabelFontColor: "#5A5757",
+  indexLabelPlacement: "outside",
+  dataPoints: dps,
+  click: onChartClick,
+  //	function(e){
+  // alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
+  //},
+  }]
+  });
+  var ref = firebase.database().ref().child('Deliveries');
+  var refRest = firebase.database().ref().child('Restoraunt');
+  var refDoneDate_modified = firebase.database().ref().child('Deliveries_small_by_days');
+  var refDGuys = firebase.database().ref().child('User_Delivery');
+  var refDeliveryGuys = firebase.database().ref().child('Delivery_Guys');
+  let array_rest = new Object();
+  var date = new Date();
+  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  var dateNow = formatDate(date);
+  var dateMonthAgo = formatDate(firstDay);
+  refDoneDate_modified.orderByKey().startAt(dateMonthAgo).endAt(dateNow).once("value", function(snapshot) {
+  console.log("size: " + snapshot.numChildren());
+  snapshot.forEach(function(snap2) {  
+  snap2.forEach(function(child){
+  
+  
+  deliveries.push({
+  delivery: child.val(),
+  });
+  if 	(array_rest[child.val().business_name] == null)
+  {
+  //console.log("fff: " + child.val().business_name);
+  array_rest[child.val().business_name] = 1;
+  }
+  else{
+  //console.log("rrr: " + array_rest[child.val().business_name]);
+  array_rest[child.val().business_name]++;
+  }
+  });
+  });
+  refDGuys.once("value",function(snap){
+  snap.forEach(function(child){
+  deliv_guys.push({
+  delivery_guy: child.val(),
+  });
+  });
+  setDelivTable();
+  })
+  refRest.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  restoraunts.push({
+  restoraunt: child.val(),
+  });
+  });
+  //console.log("ee2:" + restoraunts[0].restoraunt.index + " " + restoraunts[1].restoraunt.index);
+  restoraunts.sort(function(a,b){
+  if (a.restoraunt.was_approved === true)
+  {
+  if (b.restoraunt.was_approved === true)
+  {
+  return 0 ;
+  }
+  else
+  {
+  return -1;
+  }
+  }
+  else if (b.restoraunt.was_approved === true)
+  {
+  return 1;
+  }
+  return 0;
+  });
+  setRestTable();
+  console.log("eee:" + restoraunts[0].restoraunt.index + " " + restoraunts[1].restoraunt.index);
+  });
+  // console.log("qq: " + array_rest.length);
+  var indx = 0;
+  var length = Object.keys(array_rest).length;
+  view_port_max = length * 10;
+  var x_val = 10;
+  for (var i in array_rest)
+  {
+  console.log("tt: " + i + " " + x_val + " " + indx*length + " " + length + " " + indx + " ff: " + array_rest[i] );
+  dps.push({
+  x: x_val,
+  y: array_rest[i],
+  label: i
+  })
+  //chart.options.data[0].dataPoints[indx].y = array_rest[i];
+  indx++;
+  x_val += 10;
+  }
+  chart.render();
+  });
+  function onChartClick(e)
+  {
+  var tableHeaderRowCount = 1;
+  var table = document.getElementById("chosenTable");
+  var rowCount = table.rows.length;
+  for (var i = tableHeaderRowCount; i < rowCount; i++) {
+  table.deleteRow(tableHeaderRowCount);
+  }
+  //alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
+  var idx = 0;
+  for (let i in  deliveries)
+  {
+  if (e.dataPoint.label === deliveries[idx].delivery.business_name)
+  {
+  setRow(table,deliveries[idx].delivery)
+  }
+  idx++;
+  }
+  }
+  function setRestTable()
+  {
+  console.log("rrret");
+  var table = document.getElementById("restorauntPending");
+  //alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
+  var idx = 0;
+  for (let i in  restoraunts)
+  {
+  console.log("rrrtte: " + restoraunts[idx].restoraunt.name);
+  setRowRestoraunt(table,restoraunts[idx].restoraunt,deliveries);
+  idx++;
+  }
+  setOncellClick(restoraunts);
+  }
+  function setAdminTable()
+  {
+  }
+  var num_of_rows = 0;
+  function setDelivTable()
+  {
+  console.log("rrre2t");
+  var table = document.getElementById("delivUsers");
+  //alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
+  var idx = 0;
+  for (let i in  deliv_guys)
+  {
+  setRowDeliveryGuys(table,deliv_guys[idx].delivery_guy);
+  idx++;
+  }
+  setOnDelivGuysClick(deliv_guys);
+  }
+  var modal = document.getElementById('myModal');
+  var modal2 = document.getElementById('myModal2');
+  var span = document.getElementsByClassName("close")[0];
+  var span2 = document.getElementsByClassName("close")[1];
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+  modal.style.display = "none";
+  }
+  span2.onclick = function() {
+  modal2.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+  if (event.target == modal || event.target == modal2) {
+  modal.style.display = "none";
+  modal2.style.display = "none";
+  }
+  }
+  //alert("fff");
